@@ -16,6 +16,7 @@ import './geocoding.test.js';
 import './locations.test.js';
 import './rivers.test.js';
 import './arsoText.test.js';
+import './i18n.test.js';
 
 const failed = await run();
 imports.system.exit(failed ? 1 : 0);

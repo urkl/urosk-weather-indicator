@@ -47,43 +47,43 @@ msgstr "AROME/ARPEGE, do 4 dni"
 msgid "Met Office, up to 7 days"
 msgstr "Met Office, do 7 dni"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "N"
 msgstr "S"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "NE"
 msgstr "SV"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "E"
 msgstr "V"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "SE"
 msgstr "JV"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "S"
 msgstr "J"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "SW"
 msgstr "JZ"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "W"
 msgstr "Z"
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "NW"
 msgstr "SZ"
 
-#: src/lib/format.js:279
+#: src/lib/format.js:284
 msgid "just now"
 msgstr "pravkar"
 
-#: src/lib/format.js:282
+#: src/lib/format.js:287
 msgid "%d min ago"
 msgid_plural "%d min ago"
 msgstr[0] "pred %d min"
@@ -91,7 +91,7 @@ msgstr[1] "pred %d min"
 msgstr[2] "pred %d min"
 msgstr[3] "pred %d min"
 
-#: src/lib/format.js:285
+#: src/lib/format.js:290
 msgid "%d h ago"
 msgid_plural "%d h ago"
 msgstr[0] "pred %d h"
@@ -267,123 +267,139 @@ msgstr "Živi vodomeri in tekstovna napoved za Slovenijo"
 msgid "Weather icons by Bas Milius · MIT"
 msgstr "Vremenske ikone: Bas Milius · MIT"
 
-#: src/prefs/generalPage.js:26
+#: src/prefs/generalPage.js:29
 msgid "General"
 msgstr "Splošno"
 
-#: src/prefs/generalPage.js:28
+#: src/prefs/generalPage.js:31
+msgid "Language"
+msgstr "Jezik"
+
+#: src/prefs/generalPage.js:32
+msgid "Language of the extension"
+msgstr "Jezik razširitve"
+
+#: src/prefs/generalPage.js:33
+msgid "Automatic (desktop language)"
+msgstr "Samodejno (jezik namizja)"
+
+#: src/prefs/generalPage.js:35
+msgid "A chosen language also sets the format of dates and numbers."
+msgstr "Izbrani jezik določi tudi zapis datumov in števil."
+
+#: src/prefs/generalPage.js:38
 msgid "Top bar"
 msgstr "Zgornja vrstica"
 
-#: src/prefs/generalPage.js:29
+#: src/prefs/generalPage.js:39
 msgid "Days"
 msgstr "Število dni"
 
-#: src/prefs/generalPage.js:29
+#: src/prefs/generalPage.js:39
 msgid "0 shows only the current conditions"
 msgstr "0 = le trenutno vreme"
 
-#: src/prefs/generalPage.js:30
+#: src/prefs/generalPage.js:40
 msgid "Day style"
 msgstr "Oblika dni"
 
-#: src/prefs/generalPage.js:31
+#: src/prefs/generalPage.js:41
 msgid "Weekday, icon, high and low"
 msgstr "Dan, ikona, najvišja in najnižja"
 
-#: src/prefs/generalPage.js:32
+#: src/prefs/generalPage.js:42
 msgid "Compact: icon and high"
 msgstr "Kratko: ikona in najvišja"
 
-#: src/prefs/generalPage.js:34
+#: src/prefs/generalPage.js:44
 msgid "Current temperature"
 msgstr "Trenutna temperatura"
 
-#: src/prefs/generalPage.js:35
+#: src/prefs/generalPage.js:45
 msgid "Position"
 msgstr "Položaj"
 
-#: src/prefs/generalPage.js:36
+#: src/prefs/generalPage.js:46
 msgid "Left"
 msgstr "Levo"
 
-#: src/prefs/generalPage.js:37
+#: src/prefs/generalPage.js:47
 msgid "Center"
 msgstr "Sredina"
 
-#: src/prefs/generalPage.js:38
+#: src/prefs/generalPage.js:48
 msgid "Right"
 msgstr "Desno"
 
-#: src/prefs/generalPage.js:42
+#: src/prefs/generalPage.js:52
 msgid "Units"
 msgstr "Enote"
 
-#: src/prefs/generalPage.js:43
+#: src/prefs/generalPage.js:53
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: src/prefs/generalPage.js:44
+#: src/prefs/generalPage.js:54
 msgid "Celsius (°C)"
 msgstr "Celzij (°C)"
 
-#: src/prefs/generalPage.js:45
+#: src/prefs/generalPage.js:55
 msgid "Fahrenheit (°F)"
 msgstr "Fahrenheit (°F)"
 
-#: src/prefs/generalPage.js:47
+#: src/prefs/generalPage.js:57
 msgid "Wind speed"
 msgstr "Hitrost vetra"
 
-#: src/prefs/generalPage.js:51
+#: src/prefs/generalPage.js:61
 msgid "knots"
 msgstr "vozli"
 
-#: src/prefs/generalPage.js:53
+#: src/prefs/generalPage.js:63
 msgid "Precipitation"
 msgstr "Padavine"
 
-#: src/prefs/generalPage.js:54
+#: src/prefs/generalPage.js:64
 msgid "millimetres"
 msgstr "milimetri"
 
-#: src/prefs/generalPage.js:55
+#: src/prefs/generalPage.js:65
 msgid "inches"
 msgstr "palci"
 
-#: src/prefs/generalPage.js:57
+#: src/prefs/generalPage.js:67
 msgid "Pressure"
 msgstr "Zračni tlak"
 
-#: src/prefs/generalPage.js:65
+#: src/prefs/generalPage.js:75
 msgid "Forecast"
 msgstr "Napoved"
 
-#: src/prefs/generalPage.js:66
+#: src/prefs/generalPage.js:76
 msgid "Six models from Open-Meteo in one request, no API key needed."
 msgstr "Šest modelov Open-Meteo v enem klicu, brez ključa API."
 
-#: src/prefs/generalPage.js:68
+#: src/prefs/generalPage.js:78
 msgid "Refresh interval"
 msgstr "Osveževanje"
 
-#: src/prefs/generalPage.js:68
+#: src/prefs/generalPage.js:78
 msgid "minutes"
 msgstr "minut"
 
-#: src/prefs/generalPage.js:69
+#: src/prefs/generalPage.js:79
 msgid "ARSO text forecast"
 msgstr "Tekstovna napoved ARSO"
 
-#: src/prefs/generalPage.js:70
+#: src/prefs/generalPage.js:80
 msgid "National forecast for Slovenia by the Slovenian Environment Agency (in Slovenian)"
 msgstr "Napoved za Slovenijo, ki jo pripravlja Agencija RS za okolje"
 
-#: src/prefs/generalPage.js:73
+#: src/prefs/generalPage.js:83
 msgid "Data sources"
 msgstr "Viri podatkov"
 
-#: src/prefs/generalPage.js:76
+#: src/prefs/generalPage.js:86
 msgid "Website"
 msgstr "Spletna stran"
 
@@ -699,11 +715,11 @@ msgstr "Osveži zdaj"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/ui/menuView.js:106
+#: src/ui/menuView.js:107
 msgid "%d DAYS  ·  median of models"
 msgstr "%d DNI  ·  mediana modelov"
 
-#: src/ui/menuView.js:141
+#: src/ui/menuView.js:150
 msgid "ARSO FORECAST  ·  %s"
 msgstr "NAPOVED ARSO  ·  %s"
 

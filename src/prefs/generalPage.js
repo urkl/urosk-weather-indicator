@@ -8,7 +8,7 @@ import Adw from 'gi://Adw';
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 
-import {_} from '../lib/i18n.js';
+import {_, nativeLanguageName} from '../lib/i18n.js';
 import {comboRow, spinRow, switchRow} from './rows.js';
 
 /** Data sources with their licences; Open-Meteo and Copernicus require attribution. */
@@ -21,9 +21,19 @@ const SOURCES = [
 
 export const GeneralPage = GObject.registerClass(
 class GeneralPage extends Adw.PreferencesPage {
-    /** @param {import('gi://Gio').Settings} settings */
-    _init(settings) {
+    /**
+     * @param {import('gi://Gio').Settings} settings
+     * @param {string[]} languages languages the extension can show
+     */
+    _init(settings, languages = ['en']) {
         super._init({title: _('General'), icon_name: 'preferences-system-symbolic'});
+
+        const language = new Adw.PreferencesGroup({title: _('Language')});
+        language.add(comboRow(settings, 'language', _('Language of the extension'), [
+            ['', _('Automatic (desktop language)')],
+            ...languages.map(code => [code, nativeLanguageName(code)]),
+        ], _('A chosen language also sets the format of dates and numbers.')));
+        this.add(language);
 
         const panel = new Adw.PreferencesGroup({title: _('Top bar')});
         panel.add(spinRow(settings, 'panel-days', _('Days'), {min: 0, max: 7, subtitle: _('0 shows only the current conditions')}));

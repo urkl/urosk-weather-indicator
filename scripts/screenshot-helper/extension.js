@@ -123,6 +123,7 @@ export default class ScreenshotHelper extends Extension {
         // Search results: the real preference pages in a demo window that runs the search
         await this._demoShot('preferences-search.png', 'locations', 'Piran');
         await this._demoShot('preferences-rivers.png', 'rivers', 'sava');
+        await this._demoShot('preferences-general.png', 'general', '');
     }
 
     async _demoShot(name, page, query) {

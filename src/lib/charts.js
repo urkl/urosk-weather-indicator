@@ -107,7 +107,9 @@ export function drawHourlyChart(cr, width, height, {hours, now, fmt, fg}) {
         if (hourOfDay % 3 !== 0)
             return;
         verticalLine(cr, x(i), top, top + h, withAlpha(fg, 0.10));
-        text(cr, x(i), height - 3, fmt.hour(hour.time), {size: 9, align: 'center', color: withAlpha(fg, 0.62)});
+        // Keep the first and last label inside the chart
+        const align = i === 0 ? 'left' : i === n - 1 ? 'right' : 'center';
+        text(cr, x(i), height - 3, fmt.hour(hour.time), {size: 9, align, color: withAlpha(fg, 0.62)});
     });
 
     hours.forEach((hour, i) => {

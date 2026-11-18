@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: urosk-weather-indicator\n"
-"POT-Creation-Date: 2026-11-18 12:16+0000\n"
+"POT-Creation-Date: 2026-11-18 12:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,49 +46,49 @@ msgstr ""
 msgid "Met Office, up to 7 days"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "N"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "NE"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "E"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "SE"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "S"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "SW"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "W"
 msgstr ""
 
-#: src/lib/format.js:72
+#: src/lib/format.js:77
 msgid "NW"
 msgstr ""
 
-#: src/lib/format.js:279
+#: src/lib/format.js:284
 msgid "just now"
 msgstr ""
 
-#: src/lib/format.js:282
+#: src/lib/format.js:287
 msgid "%d min ago"
 msgid_plural "%d min ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/lib/format.js:285
+#: src/lib/format.js:290
 msgid "%d h ago"
 msgid_plural "%d h ago"
 msgstr[0] ""
@@ -262,123 +262,139 @@ msgstr ""
 msgid "Weather icons by Bas Milius · MIT"
 msgstr ""
 
-#: src/prefs/generalPage.js:26
+#: src/prefs/generalPage.js:29
 msgid "General"
 msgstr ""
 
-#: src/prefs/generalPage.js:28
-msgid "Top bar"
-msgstr ""
-
-#: src/prefs/generalPage.js:29
-msgid "Days"
-msgstr ""
-
-#: src/prefs/generalPage.js:29
-msgid "0 shows only the current conditions"
-msgstr ""
-
-#: src/prefs/generalPage.js:30
-msgid "Day style"
-msgstr ""
-
 #: src/prefs/generalPage.js:31
-msgid "Weekday, icon, high and low"
+msgid "Language"
 msgstr ""
 
 #: src/prefs/generalPage.js:32
-msgid "Compact: icon and high"
+msgid "Language of the extension"
 msgstr ""
 
-#: src/prefs/generalPage.js:34
-msgid "Current temperature"
+#: src/prefs/generalPage.js:33
+msgid "Automatic (desktop language)"
 msgstr ""
 
 #: src/prefs/generalPage.js:35
-msgid "Position"
-msgstr ""
-
-#: src/prefs/generalPage.js:36
-msgid "Left"
-msgstr ""
-
-#: src/prefs/generalPage.js:37
-msgid "Center"
+msgid "A chosen language also sets the format of dates and numbers."
 msgstr ""
 
 #: src/prefs/generalPage.js:38
-msgid "Right"
+msgid "Top bar"
+msgstr ""
+
+#: src/prefs/generalPage.js:39
+msgid "Days"
+msgstr ""
+
+#: src/prefs/generalPage.js:39
+msgid "0 shows only the current conditions"
+msgstr ""
+
+#: src/prefs/generalPage.js:40
+msgid "Day style"
+msgstr ""
+
+#: src/prefs/generalPage.js:41
+msgid "Weekday, icon, high and low"
 msgstr ""
 
 #: src/prefs/generalPage.js:42
-msgid "Units"
-msgstr ""
-
-#: src/prefs/generalPage.js:43
-msgid "Temperature"
+msgid "Compact: icon and high"
 msgstr ""
 
 #: src/prefs/generalPage.js:44
-msgid "Celsius (°C)"
+msgid "Current temperature"
 msgstr ""
 
 #: src/prefs/generalPage.js:45
-msgid "Fahrenheit (°F)"
+msgid "Position"
+msgstr ""
+
+#: src/prefs/generalPage.js:46
+msgid "Left"
 msgstr ""
 
 #: src/prefs/generalPage.js:47
-msgid "Wind speed"
+msgid "Center"
 msgstr ""
 
-#: src/prefs/generalPage.js:51
-msgid "knots"
+#: src/prefs/generalPage.js:48
+msgid "Right"
+msgstr ""
+
+#: src/prefs/generalPage.js:52
+msgid "Units"
 msgstr ""
 
 #: src/prefs/generalPage.js:53
-msgid "Precipitation"
+msgid "Temperature"
 msgstr ""
 
 #: src/prefs/generalPage.js:54
-msgid "millimetres"
+msgid "Celsius (°C)"
 msgstr ""
 
 #: src/prefs/generalPage.js:55
-msgid "inches"
+msgid "Fahrenheit (°F)"
 msgstr ""
 
 #: src/prefs/generalPage.js:57
-msgid "Pressure"
+msgid "Wind speed"
+msgstr ""
+
+#: src/prefs/generalPage.js:61
+msgid "knots"
+msgstr ""
+
+#: src/prefs/generalPage.js:63
+msgid "Precipitation"
+msgstr ""
+
+#: src/prefs/generalPage.js:64
+msgid "millimetres"
 msgstr ""
 
 #: src/prefs/generalPage.js:65
+msgid "inches"
+msgstr ""
+
+#: src/prefs/generalPage.js:67
+msgid "Pressure"
+msgstr ""
+
+#: src/prefs/generalPage.js:75
 msgid "Forecast"
 msgstr ""
 
-#: src/prefs/generalPage.js:66
+#: src/prefs/generalPage.js:76
 msgid "Six models from Open-Meteo in one request, no API key needed."
 msgstr ""
 
-#: src/prefs/generalPage.js:68
+#: src/prefs/generalPage.js:78
 msgid "Refresh interval"
 msgstr ""
 
-#: src/prefs/generalPage.js:68
+#: src/prefs/generalPage.js:78
 msgid "minutes"
 msgstr ""
 
-#: src/prefs/generalPage.js:69
+#: src/prefs/generalPage.js:79
 msgid "ARSO text forecast"
 msgstr ""
 
-#: src/prefs/generalPage.js:70
+#: src/prefs/generalPage.js:80
 msgid "National forecast for Slovenia by the Slovenian Environment Agency (in Slovenian)"
 msgstr ""
 
-#: src/prefs/generalPage.js:73
+#: src/prefs/generalPage.js:83
 msgid "Data sources"
 msgstr ""
 
-#: src/prefs/generalPage.js:76
+#: src/prefs/generalPage.js:86
 msgid "Website"
 msgstr ""
 
@@ -694,11 +710,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/ui/menuView.js:106
+#: src/ui/menuView.js:107
 msgid "%d DAYS  ·  median of models"
 msgstr ""
 
-#: src/ui/menuView.js:141
+#: src/ui/menuView.js:150
 msgid "ARSO FORECAST  ·  %s"
 msgstr ""
 

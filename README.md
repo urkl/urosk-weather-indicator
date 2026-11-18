@@ -5,6 +5,8 @@ SPDX-License-Identifier: Apache-2.0
 
 # Urosk Weather Indicator
 
+**English** · [Slovenščina](README.sl.md)
+
 A GNOME Shell extension that puts a **multi-model weather forecast** in the top bar. Instead of
 trusting a single weather model, it asks Open-Meteo for six of them at once, shows the
 **median**, draws the **range** between the models and **warns you when they disagree** — so you
@@ -37,7 +39,9 @@ can see at a glance whether "rain on Thursday" is a safe bet or a coin toss.
 - **Units**: °C or °F, km/h, m/s, mph or knots, mm or inches, hPa, inHg or mmHg; the 12/24-hour
   clock follows your GNOME setting.
 - Optional national **text forecast for Slovenia** (ARSO, in Slovenian).
-- Works with the dark and the light shell style. Translations: English and Slovenian.
+- **English and Slovenian** — follows the desktop language, or choose the language in the
+  settings (it also sets the format of dates and numbers).
+- Works with the dark and the light shell style.
 
 ## Screenshots
 
@@ -45,9 +49,13 @@ can see at a glance whether "rain on Thursday" is a safe bet or a coin toss.
 | --- | --- |
 | ![Friday selected: hourly chart and the forecast of each model](docs/screenshots/menu-day.png) | ![Ljubljana selected, with a warning that the models disagree](docs/screenshots/menu-location.png) |
 
-| Locations | Place search | Rivers |
-| --- | --- | --- |
-| ![Saved locations](docs/screenshots/preferences.png) | ![Searching for a place](docs/screenshots/preferences-search.png) | ![River gauges and the ARSO station search](docs/screenshots/preferences-rivers.png) |
+| Locations | Place search |
+| --- | --- |
+| ![Saved locations](docs/screenshots/preferences.png) | ![Searching for a place](docs/screenshots/preferences-search.png) |
+
+| General | Rivers |
+| --- | --- |
+| ![Language, top bar and units](docs/screenshots/preferences-general.png) | ![River gauges and the ARSO station search](docs/screenshots/preferences-rivers.png) |
 
 The screenshots are generated from live data by `scripts/screenshots.sh` (see
 [Development](#development)).
@@ -89,7 +97,9 @@ make install
    coordinates, e.g. `46.2048, 14.5384`. The selected location is shown in the top bar; with more
    than one location, switch at the top of the menu.
 3. Click a day in the menu to see its hourly chart and what each model expects.
-4. Optionally, on the **Rivers** page, add a live ARSO gauge (search by river or place) or any
+4. On the **General** page you can choose the language (English or Slovenian), units and what
+   the top bar shows.
+5. Optionally, on the **Rivers** page, add a live ARSO gauge (search by river or place) or any
    river point worldwide (search for a place on the river), and set your own alert thresholds.
 
 ## How the forecast is combined
@@ -152,6 +162,7 @@ be wrong; for warnings that matter, follow your national weather and hydrologica
 
 ## Translations
 
+The extension follows the desktop language; Settings → General → Language overrides it.
 Translations live in `po/`. To add a language (example: German):
 
 ```sh
@@ -186,7 +197,7 @@ scripts/              i18n tooling, screenshot automation
 | `make i18n-check` | every string translated, template up to date |
 | `make install` | build and install for the current user |
 | `make zip` | package `dist/urosk-weather-indicator@urosk.net.shell-extension.zip` |
-| `make screenshots` | regenerate `docs/screenshots/` |
+| `make screenshots` | regenerate `docs/screenshots/` (English) and `docs/screenshots/sl/` (Slovenian) |
 
 `scripts/screenshots.sh` starts a **headless GNOME Shell** with its own D-Bus session and
 temporary config directories (your desktop is not touched), installs the extension together with

@@ -47,6 +47,13 @@
       <summary>Index of the location shown in the top bar</summary>
     </key>
 
+    <!-- Language -->
+    <key name="language" type="s">
+      <default>''</default>
+      <summary>Language of the extension</summary>
+      <description>Empty follows the desktop language; otherwise a language code such as en or sl.</description>
+    </key>
+
     <!-- Top bar -->
     <key name="panel-days" type="i">
       <range min="0" max="7"/>

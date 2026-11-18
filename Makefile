@@ -41,7 +41,8 @@ zip: build
 	@echo "Created $(ZIP)"
 
 test:
-	gjs -m tests/run.js
+	python3 scripts/i18n.py compile build/test-locale >/dev/null
+	UWI_TEST_LOCALE_DIR=build/test-locale gjs -m tests/run.js
 
 lint:
 	npx eslint src tests scripts
@@ -57,6 +58,7 @@ check: lint test i18n-check
 
 screenshots:
 	scripts/screenshots.sh
+	UWI_LANGUAGE=sl scripts/screenshots.sh
 
 clean:
 	rm -rf build $(DIST)

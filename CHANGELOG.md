@@ -24,5 +24,6 @@ First public release, rewritten from a private extension for one location in Slo
   gauges in Slovenia with official thresholds, custom alert levels, trend and charts.
 - Units for temperature, wind speed, precipitation and pressure; 12/24-hour clock from GNOME.
 - Optional ARSO text forecast for Slovenia.
-- English and Slovenian translations.
+- English and Slovenian, following the desktop or chosen in the settings (also sets the date and
+  number format).
 - Unit tests, ESLint, GitHub Actions CI and automated screenshots in a headless GNOME Shell.

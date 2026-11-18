@@ -8,7 +8,7 @@
  */
 import GLib from 'gi://GLib';
 
-import {_, N_, fill, ngettext} from './i18n.js';
+import {_, N_, chosenLanguageCode, fill, ngettext} from './i18n.js';
 import {
     PrecipitationUnit, PressureUnit, TemperatureUnit, UNIT_SYMBOLS, WindSpeedUnit,
     convertPrecipitation, convertPressure, convertTemperature, convertWindSpeed,
@@ -36,12 +36,15 @@ export function posixToBcp47(name) {
 }
 
 /**
- * Locale for number and date formatting: honours `LC_ALL`, then `LC_TIME`, then `LANG`,
- * so a user with an English interface and local date formats gets what they configured.
+ * Locale for number and date formatting. A language chosen in the extension settings wins
+ * (weekday names should match the interface); otherwise `LC_ALL`, then `LC_TIME`, then
+ * `LANG`, so a user with an English desktop and local date formats gets what they configured.
  *
  * @returns {string}
  */
 export function formattingLocale() {
+    if (chosenLanguageCode())
+        return chosenLanguageCode();
     for (const variable of ['LC_ALL', 'LC_TIME', 'LANG']) {
         const tag = posixToBcp47(GLib.getenv(variable));
         if (tag)
@@ -56,6 +59,8 @@ export function formattingLocale() {
  * @returns {string}
  */
 export function interfaceLanguage() {
+    if (chosenLanguageCode())
+        return chosenLanguageCode();
     for (const name of GLib.get_language_names()) {
         const tag = posixToBcp47(name);
         if (tag)

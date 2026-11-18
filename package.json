@@ -12,7 +12,7 @@
   },
   "scripts": {
     "lint": "eslint src tests scripts",
-    "test": "gjs -m tests/run.js"
+    "test": "make test"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
