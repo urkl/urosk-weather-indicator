@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+  SPDX-License-Identifier: Apache-2.0
+-->
+<schemalist gettext-domain="urosk-weather-indicator">
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.panel-style">
+    <value nick="full" value="0"/>
+    <value nick="compact" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.panel-position">
+    <value nick="left" value="0"/>
+    <value nick="center" value="1"/>
+    <value nick="right" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.temperature-unit">
+    <value nick="celsius" value="0"/>
+    <value nick="fahrenheit" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.wind-speed-unit">
+    <value nick="kmh" value="0"/>
+    <value nick="ms" value="1"/>
+    <value nick="mph" value="2"/>
+    <value nick="kn" value="3"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.precipitation-unit">
+    <value nick="mm" value="0"/>
+    <value nick="inch" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.urosk-weather-indicator.pressure-unit">
+    <value nick="hpa" value="0"/>
+    <value nick="inhg" value="1"/>
+    <value nick="mmhg" value="2"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.urosk-weather-indicator"
+          path="/org/gnome/shell/extensions/urosk-weather-indicator/">
+
+    <!-- Locations -->
+    <key name="locations" type="aa{sv}">
+      <default>[]</default>
+      <summary>Saved locations</summary>
+      <description>List of locations with the keys name (s), description (s), latitude (d) and longitude (d).</description>
+    </key>
+    <key name="active-location" type="i">
+      <default>0</default>
+      <summary>Index of the location shown in the top bar</summary>
+    </key>
+
+    <!-- Top bar -->
+    <key name="panel-days" type="i">
+      <range min="0" max="7"/>
+      <default>7</default>
+      <summary>Number of days shown in the top bar</summary>
+      <description>0 shows only the current conditions.</description>
+    </key>
+    <key name="panel-style" enum="org.gnome.shell.extensions.urosk-weather-indicator.panel-style">
+      <default>'full'</default>
+      <summary>Style of the days in the top bar</summary>
+      <description>full: weekday, icon, high and low; compact: icon and high only.</description>
+    </key>
+    <key name="panel-show-current" type="b">
+      <default>true</default>
+      <summary>Show the current temperature in the top bar</summary>
+    </key>
+    <key name="panel-position" enum="org.gnome.shell.extensions.urosk-weather-indicator.panel-position">
+      <default>'right'</default>
+      <summary>Position of the indicator in the top bar</summary>
+    </key>
+
+    <!-- Forecast -->
+    <key name="refresh-interval" type="i">
+      <range min="10" max="180"/>
+      <default>30</default>
+      <summary>Forecast refresh interval in minutes</summary>
+    </key>
+    <key name="show-arso-text" type="b">
+      <default>false</default>
+      <summary>Show the ARSO text forecast for Slovenia</summary>
+      <description>National text forecast by the Slovenian Environment Agency, in Slovenian.</description>
+    </key>
+
+    <!-- Units -->
+    <key name="temperature-unit" enum="org.gnome.shell.extensions.urosk-weather-indicator.temperature-unit">
+      <default>'celsius'</default>
+      <summary>Temperature unit</summary>
+    </key>
+    <key name="wind-speed-unit" enum="org.gnome.shell.extensions.urosk-weather-indicator.wind-speed-unit">
+      <default>'kmh'</default>
+      <summary>Wind speed unit</summary>
+    </key>
+    <key name="precipitation-unit" enum="org.gnome.shell.extensions.urosk-weather-indicator.precipitation-unit">
+      <default>'mm'</default>
+      <summary>Precipitation unit</summary>
+    </key>
+    <key name="pressure-unit" enum="org.gnome.shell.extensions.urosk-weather-indicator.pressure-unit">
+      <default>'hpa'</default>
+      <summary>Pressure unit</summary>
+    </key>
+
+    <!-- Rivers -->
+    <key name="rivers-enabled" type="b">
+      <default>false</default>
+      <summary>Show river gauges in the menu</summary>
+    </key>
+    <key name="river-in-panel" type="b">
+      <default>true</default>
+      <summary>Show the first river gauge in the top bar</summary>
+    </key>
+    <key name="river-gauges" type="aa{sv}">
+      <default>[]</default>
+      <summary>Saved river gauges</summary>
+      <description>List of gauges with the keys source (s: arso or glofas), id (s), name (s), latitude (d), longitude (d) and warning1–3 (d, 0 = not set).</description>
+    </key>
+  </schema>
+</schemalist>

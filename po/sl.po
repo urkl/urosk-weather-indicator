@@ -1,0 +1,769 @@
+# sl translation of urosk-weather-indicator.
+# SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: urosk-weather-indicator\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#: src/lib/arsoText.js:16 src/ui/dayView.js:52 src/ui/weekView.js:46
+msgid "Today"
+msgstr "Danes"
+
+#: src/lib/arsoText.js:17
+msgid "Tomorrow"
+msgstr "Jutri"
+
+#: src/lib/arsoText.js:18
+msgid "Outlook"
+msgstr "Obeti"
+
+#: src/lib/forecast.js:22
+msgid "DWD, 2 km, up to 2 days"
+msgstr "DWD, 2 km, do 2 dni"
+
+#: src/lib/forecast.js:23
+msgid "DWD, 7 km, up to 5 days"
+msgstr "DWD, 7 km, do 5 dni"
+
+#: src/lib/forecast.js:24
+msgid "IFS 0.25°, 7+ days"
+msgstr "IFS 0,25°, 7+ dni"
+
+#: src/lib/forecast.js:25
+msgid "NOAA, 7+ days"
+msgstr "NOAA, 7+ dni"
+
+#: src/lib/forecast.js:26
+msgid "AROME/ARPEGE, up to 4 days"
+msgstr "AROME/ARPEGE, do 4 dni"
+
+#: src/lib/forecast.js:27
+msgid "Met Office, up to 7 days"
+msgstr "Met Office, do 7 dni"
+
+#: src/lib/format.js:72
+msgid "N"
+msgstr "S"
+
+#: src/lib/format.js:72
+msgid "NE"
+msgstr "SV"
+
+#: src/lib/format.js:72
+msgid "E"
+msgstr "V"
+
+#: src/lib/format.js:72
+msgid "SE"
+msgstr "JV"
+
+#: src/lib/format.js:72
+msgid "S"
+msgstr "J"
+
+#: src/lib/format.js:72
+msgid "SW"
+msgstr "JZ"
+
+#: src/lib/format.js:72
+msgid "W"
+msgstr "Z"
+
+#: src/lib/format.js:72
+msgid "NW"
+msgstr "SZ"
+
+#: src/lib/format.js:279
+msgid "just now"
+msgstr "pravkar"
+
+#: src/lib/format.js:282
+msgid "%d min ago"
+msgid_plural "%d min ago"
+msgstr[0] "pred %d min"
+msgstr[1] "pred %d min"
+msgstr[2] "pred %d min"
+msgstr[3] "pred %d min"
+
+#: src/lib/format.js:285
+msgid "%d h ago"
+msgid_plural "%d h ago"
+msgstr[0] "pred %d h"
+msgstr[1] "pred %d h"
+msgstr[2] "pred %d h"
+msgstr[3] "pred %d h"
+
+#: src/lib/rivers/arso.js:23
+msgid "low flow"
+msgstr "mali pretok"
+
+#: src/lib/rivers/arso.js:24 src/lib/rivers/arso.js:25
+msgid "normal flow"
+msgstr "običajni pretok"
+
+#: src/lib/rivers/arso.js:26
+msgid "high flow"
+msgstr "veliki pretok"
+
+#: src/lib/rivers/arso.js:27
+msgid "first flood level"
+msgstr "prvi visokovodni pretok"
+
+#: src/lib/rivers/arso.js:28
+msgid "second flood level"
+msgstr "drugi visokovodni pretok"
+
+#: src/lib/rivers/arso.js:29
+msgid "third flood level"
+msgstr "tretji visokovodni pretok"
+
+#: src/lib/rivers/gauges.js:16
+msgid "Yellow alert"
+msgstr "Rumeno opozorilo"
+
+#: src/lib/rivers/gauges.js:16
+msgid "Orange alert"
+msgstr "Oranžno opozorilo"
+
+#: src/lib/rivers/gauges.js:16
+msgid "Red alert"
+msgstr "Rdeče opozorilo"
+
+#: src/lib/weatherCodes.js:15
+msgid "Clear sky"
+msgstr "Jasno"
+
+#: src/lib/weatherCodes.js:16
+msgid "Mainly clear"
+msgstr "Pretežno jasno"
+
+#: src/lib/weatherCodes.js:17
+msgid "Partly cloudy"
+msgstr "Delno oblačno"
+
+#: src/lib/weatherCodes.js:18
+msgid "Overcast"
+msgstr "Oblačno"
+
+#: src/lib/weatherCodes.js:19
+msgid "Fog"
+msgstr "Megla"
+
+#: src/lib/weatherCodes.js:20
+msgid "Freezing fog"
+msgstr "Megla z ivjem"
+
+#: src/lib/weatherCodes.js:21
+msgid "Light drizzle"
+msgstr "Rahlo rosenje"
+
+#: src/lib/weatherCodes.js:22
+msgid "Drizzle"
+msgstr "Rosenje"
+
+#: src/lib/weatherCodes.js:23
+msgid "Heavy drizzle"
+msgstr "Močno rosenje"
+
+#: src/lib/weatherCodes.js:24
+msgid "Freezing drizzle"
+msgstr "Ledeno rosenje"
+
+#: src/lib/weatherCodes.js:25
+msgid "Heavy freezing drizzle"
+msgstr "Močno ledeno rosenje"
+
+#: src/lib/weatherCodes.js:26
+msgid "Light rain"
+msgstr "Rahel dež"
+
+#: src/lib/weatherCodes.js:27
+msgid "Rain"
+msgstr "Dež"
+
+#: src/lib/weatherCodes.js:28
+msgid "Heavy rain"
+msgstr "Močan dež"
+
+#: src/lib/weatherCodes.js:29
+msgid "Light freezing rain"
+msgstr "Rahel leden dež"
+
+#: src/lib/weatherCodes.js:30
+msgid "Freezing rain"
+msgstr "Leden dež"
+
+#: src/lib/weatherCodes.js:31
+msgid "Light snowfall"
+msgstr "Rahlo sneženje"
+
+#: src/lib/weatherCodes.js:32
+msgid "Snowfall"
+msgstr "Sneženje"
+
+#: src/lib/weatherCodes.js:33
+msgid "Heavy snowfall"
+msgstr "Močno sneženje"
+
+#: src/lib/weatherCodes.js:34
+msgid "Snow grains"
+msgstr "Zrnat sneg"
+
+#: src/lib/weatherCodes.js:35
+msgid "Light showers"
+msgstr "Rahle plohe"
+
+#: src/lib/weatherCodes.js:36
+msgid "Showers"
+msgstr "Plohe"
+
+#: src/lib/weatherCodes.js:37
+msgid "Violent showers"
+msgstr "Močne plohe"
+
+#: src/lib/weatherCodes.js:38
+msgid "Snow showers"
+msgstr "Snežne plohe"
+
+#: src/lib/weatherCodes.js:39
+msgid "Heavy snow showers"
+msgstr "Močne snežne plohe"
+
+#: src/lib/weatherCodes.js:40
+msgid "Thunderstorm"
+msgstr "Nevihta"
+
+#: src/lib/weatherCodes.js:41
+msgid "Thunderstorm with hail"
+msgstr "Nevihta s točo"
+
+#: src/lib/weatherCodes.js:42
+msgid "Severe thunderstorm with hail"
+msgstr "Močna nevihta s točo"
+
+#: src/lib/weatherCodes.js:45
+msgid "No data"
+msgstr "Ni podatka"
+
+#: src/prefs/generalPage.js:16
+msgid "Weather forecast and geocoding · CC BY 4.0"
+msgstr "Vremenska napoved in iskanje krajev · CC BY 4.0"
+
+#: src/prefs/generalPage.js:17
+msgid "Modelled river discharge via the Open-Meteo Flood API"
+msgstr "Modeliran pretok rek prek Open-Meteo Flood API"
+
+#: src/prefs/generalPage.js:18
+msgid "Live river gauges and text forecast for Slovenia"
+msgstr "Živi vodomeri in tekstovna napoved za Slovenijo"
+
+#: src/prefs/generalPage.js:19
+msgid "Weather icons by Bas Milius · MIT"
+msgstr "Vremenske ikone: Bas Milius · MIT"
+
+#: src/prefs/generalPage.js:26
+msgid "General"
+msgstr "Splošno"
+
+#: src/prefs/generalPage.js:28
+msgid "Top bar"
+msgstr "Zgornja vrstica"
+
+#: src/prefs/generalPage.js:29
+msgid "Days"
+msgstr "Število dni"
+
+#: src/prefs/generalPage.js:29
+msgid "0 shows only the current conditions"
+msgstr "0 = le trenutno vreme"
+
+#: src/prefs/generalPage.js:30
+msgid "Day style"
+msgstr "Oblika dni"
+
+#: src/prefs/generalPage.js:31
+msgid "Weekday, icon, high and low"
+msgstr "Dan, ikona, najvišja in najnižja"
+
+#: src/prefs/generalPage.js:32
+msgid "Compact: icon and high"
+msgstr "Kratko: ikona in najvišja"
+
+#: src/prefs/generalPage.js:34
+msgid "Current temperature"
+msgstr "Trenutna temperatura"
+
+#: src/prefs/generalPage.js:35
+msgid "Position"
+msgstr "Položaj"
+
+#: src/prefs/generalPage.js:36
+msgid "Left"
+msgstr "Levo"
+
+#: src/prefs/generalPage.js:37
+msgid "Center"
+msgstr "Sredina"
+
+#: src/prefs/generalPage.js:38
+msgid "Right"
+msgstr "Desno"
+
+#: src/prefs/generalPage.js:42
+msgid "Units"
+msgstr "Enote"
+
+#: src/prefs/generalPage.js:43
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/prefs/generalPage.js:44
+msgid "Celsius (°C)"
+msgstr "Celzij (°C)"
+
+#: src/prefs/generalPage.js:45
+msgid "Fahrenheit (°F)"
+msgstr "Fahrenheit (°F)"
+
+#: src/prefs/generalPage.js:47
+msgid "Wind speed"
+msgstr "Hitrost vetra"
+
+#: src/prefs/generalPage.js:51
+msgid "knots"
+msgstr "vozli"
+
+#: src/prefs/generalPage.js:53
+msgid "Precipitation"
+msgstr "Padavine"
+
+#: src/prefs/generalPage.js:54
+msgid "millimetres"
+msgstr "milimetri"
+
+#: src/prefs/generalPage.js:55
+msgid "inches"
+msgstr "palci"
+
+#: src/prefs/generalPage.js:57
+msgid "Pressure"
+msgstr "Zračni tlak"
+
+#: src/prefs/generalPage.js:65
+msgid "Forecast"
+msgstr "Napoved"
+
+#: src/prefs/generalPage.js:66
+msgid "Six models from Open-Meteo in one request, no API key needed."
+msgstr "Šest modelov Open-Meteo v enem klicu, brez ključa API."
+
+#: src/prefs/generalPage.js:68
+msgid "Refresh interval"
+msgstr "Osveževanje"
+
+#: src/prefs/generalPage.js:68
+msgid "minutes"
+msgstr "minut"
+
+#: src/prefs/generalPage.js:69
+msgid "ARSO text forecast"
+msgstr "Tekstovna napoved ARSO"
+
+#: src/prefs/generalPage.js:70
+msgid "National forecast for Slovenia by the Slovenian Environment Agency (in Slovenian)"
+msgstr "Napoved za Slovenijo, ki jo pripravlja Agencija RS za okolje"
+
+#: src/prefs/generalPage.js:73
+msgid "Data sources"
+msgstr "Viri podatkov"
+
+#: src/prefs/generalPage.js:76
+msgid "Website"
+msgstr "Spletna stran"
+
+#: src/prefs/locationsPage.js:36
+msgid "Coordinates"
+msgstr "Koordinate"
+
+#: src/prefs/locationsPage.js:49
+msgid "Locations"
+msgstr "Lokacije"
+
+#: src/prefs/locationsPage.js:53
+msgid "Saved locations"
+msgstr "Shranjene lokacije"
+
+#: src/prefs/locationsPage.js:54
+msgid "The selected location is shown in the top bar. With several locations, switch between them at the top of the menu."
+msgstr "Izbrana lokacija je prikazana v zgornji vrstici. Med več lokacijami preklapljaš na vrhu menija."
+
+#: src/prefs/locationsPage.js:60
+msgid "Add a location"
+msgstr "Dodaj lokacijo"
+
+#: src/prefs/locationsPage.js:61
+msgid "Search by place name, or enter coordinates as “latitude, longitude”."
+msgstr "Išči po imenu kraja ali vpiši koordinate kot »širina, dolžina«."
+
+#: src/prefs/locationsPage.js:62
+msgid "Search for a place"
+msgstr "Poišči kraj"
+
+#: src/prefs/locationsPage.js:85 src/prefs/riversPage.js:118
+msgid "%s is already saved"
+msgstr "%s je že med shranjenimi"
+
+#: src/prefs/locationsPage.js:91 src/prefs/riversPage.js:124
+msgid "Added %s"
+msgstr "Dodano: %s"
+
+#: src/prefs/locationsPage.js:112 src/prefs/riversPage.js:156
+msgid "Removed %s"
+msgstr "Odstranjeno: %s"
+
+#: src/prefs/locationsPage.js:123
+msgid "No saved locations yet"
+msgstr "Ni še shranjenih lokacij"
+
+#: src/prefs/locationsPage.js:124
+msgid "Search for a place below to add your first location."
+msgstr "Spodaj poišči kraj in dodaj prvo lokacijo."
+
+#: src/prefs/locationsPage.js:140
+msgid "Show in the top bar"
+msgstr "Prikaži v zgornji vrstici"
+
+#: src/prefs/riversPage.js:19
+msgid "ARSO live gauge (Slovenia)"
+msgstr "Živi vodomer ARSO (Slovenija)"
+
+#: src/prefs/riversPage.js:20
+msgid "GloFAS modelled discharge"
+msgstr "Modeliran pretok GloFAS"
+
+#: src/prefs/riversPage.js:30
+msgid "Rivers"
+msgstr "Reke"
+
+#: src/prefs/riversPage.js:37
+msgid "River gauges"
+msgstr "Vodomeri"
+
+#: src/prefs/riversPage.js:38
+msgid "Water level and discharge of rivers near you, with alert levels."
+msgstr "Vodostaj in pretok rek v bližini, s stopnjami opozorila."
+
+#: src/prefs/riversPage.js:40
+msgid "Show rivers in the menu"
+msgstr "Prikaži reke v meniju"
+
+#: src/prefs/riversPage.js:41
+msgid "Show the first gauge in the top bar"
+msgstr "Prikaži prvi vodomer v zgornji vrstici"
+
+#: src/prefs/riversPage.js:44
+msgid "Saved gauges"
+msgstr "Shranjeni vodomeri"
+
+#: src/prefs/riversPage.js:49
+msgid "Add a live gauge in Slovenia (ARSO)"
+msgstr "Dodaj živi vodomer v Sloveniji (ARSO)"
+
+#: src/prefs/riversPage.js:50
+msgid "Measured water level and discharge, updated every 30 minutes, with the official high-water thresholds."
+msgstr "Izmerjen vodostaj in pretok, osvežen vsakih 30 minut, z uradnimi visokovodnimi pragovi."
+
+#: src/prefs/riversPage.js:51
+msgid "Search by river or place, e.g. Sava"
+msgstr "Išči po reki ali kraju, npr. Sava"
+
+#: src/prefs/riversPage.js:58
+msgid "no current reading"
+msgstr "ni trenutne meritve"
+
+#: src/prefs/riversPage.js:72
+msgid "Add any river worldwide (GloFAS)"
+msgstr "Dodaj katero koli reko na svetu (GloFAS)"
+
+#: src/prefs/riversPage.js:73
+msgid "Modelled daily discharge with a 10-day forecast. Pick a point on the river itself — the model grid is about 5 km."
+msgstr "Modeliran dnevni pretok z napovedjo za 10 dni. Izberi točko na sami reki — mreža modela je približno 5 km."
+
+#: src/prefs/riversPage.js:74
+msgid "Search for a place on the river"
+msgstr "Poišči kraj ob reki"
+
+#: src/prefs/riversPage.js:134
+msgid "No saved gauges yet"
+msgstr "Ni še shranjenih vodomerov"
+
+#: src/prefs/riversPage.js:135
+msgid "Add a gauge below."
+msgstr "Spodaj dodaj vodomer."
+
+#: src/prefs/riversPage.js:170
+msgid "Water level in cm. Leave all at 0 to use the official ARSO thresholds."
+msgstr "Vodostaj v cm. Če pustiš vse na 0, veljajo uradni pragovi ARSO."
+
+#: src/prefs/riversPage.js:171
+msgid "Discharge in m³/s. GloFAS has no official thresholds; 0 = not set."
+msgstr "Pretok v m³/s. GloFAS nima uradnih pragov; 0 = ni nastavljeno."
+
+#: src/prefs/riversPage.js:172
+msgid "Alert thresholds"
+msgstr "Pragovi opozoril"
+
+#: src/prefs/riversPage.js:174
+msgid "Yellow alert from"
+msgstr "Rumeno opozorilo od"
+
+#: src/prefs/riversPage.js:174
+msgid "Orange alert from"
+msgstr "Oranžno opozorilo od"
+
+#: src/prefs/riversPage.js:174
+msgid "Red alert from"
+msgstr "Rdeče opozorilo od"
+
+#: src/prefs/rows.js:76
+msgid "Move up"
+msgstr "Premakni gor"
+
+#: src/prefs/rows.js:77
+msgid "Move down"
+msgstr "Premakni dol"
+
+#: src/prefs/rows.js:78
+msgid "Remove"
+msgstr "Odstrani"
+
+#: src/prefs/rows.js:165
+msgid "Searching…"
+msgstr "Iščem …"
+
+#: src/prefs/rows.js:173
+msgid "Search failed"
+msgstr "Iskanje ni uspelo"
+
+#: src/prefs/rows.js:180
+msgid "Nothing found"
+msgstr "Ni zadetkov"
+
+#: src/prefs/rows.js:180
+msgid "Try another spelling or enter coordinates as “latitude, longitude”."
+msgstr "Poskusi z drugačnim zapisom ali vpiši koordinate kot »širina, dolžina«."
+
+#: src/ui/currentView.js:38
+msgid "humidity"
+msgstr "vlaga"
+
+#: src/ui/currentView.js:38
+msgid "wind"
+msgstr "veter"
+
+#: src/ui/currentView.js:39
+msgid "gusts"
+msgstr "sunki"
+
+#: src/ui/currentView.js:39
+msgid "pressure"
+msgstr "tlak"
+
+#: src/ui/currentView.js:40 src/ui/dayView.js:113
+msgid "precipitation"
+msgstr "padavine"
+
+#: src/ui/currentView.js:40
+msgid "UV today"
+msgstr "UV danes"
+
+#: src/ui/currentView.js:41
+msgid "sunrise"
+msgstr "vzhod"
+
+#: src/ui/currentView.js:41
+msgid "sunset"
+msgstr "zahod"
+
+#: src/ui/currentView.js:74
+msgid "feels like %s"
+msgstr "občutek %s"
+
+#: src/ui/dayView.js:57
+msgid "— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)"
+msgstr "— temperatura (mediana, pas = razpon modelov)   ▮ padavine %s/h (svetlo = najbolj moker model)"
+
+#: src/ui/dayView.js:77
+msgid "precipitation %s–%s"
+msgstr "padavine %s–%s"
+
+#: src/ui/dayView.js:79
+msgid "temperature %s…%s / %s…%s"
+msgstr "temperatura %s…%s / %s…%s"
+
+#: src/ui/dayView.js:84
+msgid "Models disagree: %s — the forecast is uncertain."
+msgstr "Modeli se razhajajo: %s — napoved je negotova."
+
+#: src/ui/dayView.js:98
+msgid "precipitation %s"
+msgstr "padavine %s"
+
+#: src/ui/dayView.js:99
+msgid "precipitation %s (%s)"
+msgstr "padavine %s (%s)"
+
+#: src/ui/dayView.js:101
+msgid "wind up to %s, gusts %s"
+msgstr "veter do %s, sunki %s"
+
+#: src/ui/dayView.js:103
+msgid "UV %s"
+msgstr "UV %s"
+
+#: src/ui/dayView.js:105
+msgid "sun %s–%s"
+msgstr "sonce %s–%s"
+
+#: src/ui/dayView.js:112
+msgid "model"
+msgstr "model"
+
+#: src/ui/dayView.js:113
+msgid "high / low"
+msgstr "max / min"
+
+#: src/ui/dayView.js:130
+msgid "The other models do not reach this day (shorter range)."
+msgstr "Ostali modeli za ta dan nimajo napovedi (krajši doseg)."
+
+#: src/ui/indicator.js:48
+msgid "Weather"
+msgstr "Vreme"
+
+#: src/ui/indicator.js:296
+msgid "Set a location"
+msgstr "Nastavi lokacijo"
+
+#: src/ui/indicator.js:297
+msgid "No location"
+msgstr "Ni lokacije"
+
+#: src/ui/indicator.js:297
+msgid "Add a location in the settings."
+msgstr "Dodaj lokacijo v nastavitvah."
+
+#: src/ui/indicator.js:298
+msgid "Open Settings and search for a place."
+msgstr "Odpri Nastavitve in poišči kraj."
+
+#: src/ui/indicator.js:302
+msgid "Forecast not available: %s"
+msgstr "Napoved ni na voljo: %s"
+
+#: src/ui/indicator.js:303
+msgid "Loading the forecast…"
+msgstr "Nalagam napoved …"
+
+#: src/ui/indicator.js:304
+msgid "Error: %s"
+msgstr "Napaka: %s"
+
+#: src/ui/indicator.js:304
+msgid "Loading…"
+msgstr "Nalagam …"
+
+#: src/ui/indicator.js:330
+msgid "Update failed: %s · last forecast %s"
+msgstr "Osvežitev ni uspela: %s · zadnja napoved %s"
+
+#: src/ui/indicator.js:331
+msgid "Updated %s · %s"
+msgstr "Osveženo ob %s · %s"
+
+#: src/ui/indicator.js:332
+msgid "Weather data by Open-Meteo.com (CC BY 4.0)"
+msgstr "Vremenski podatki: Open-Meteo.com (CC BY 4.0)"
+
+#: src/ui/menuView.js:66
+msgid "Refresh"
+msgstr "Osveži zdaj"
+
+#: src/ui/menuView.js:67
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: src/ui/menuView.js:106
+msgid "%d DAYS  ·  median of models"
+msgstr "%d DNI  ·  mediana modelov"
+
+#: src/ui/menuView.js:141
+msgid "ARSO FORECAST  ·  %s"
+msgstr "NAPOVED ARSO  ·  %s"
+
+#: src/ui/panelView.js:63
+msgid "today"
+msgstr "danes"
+
+#: src/ui/riversView.js:27
+msgid "RIVERS"
+msgstr "REKE"
+
+#: src/ui/riversView.js:82
+msgid "no data"
+msgstr "ni podatkov"
+
+#: src/ui/riversView.js:103
+msgid "water %s"
+msgstr "voda %s"
+
+#: src/ui/riversView.js:105
+msgid "%s per hour"
+msgstr "%s na uro"
+
+#: src/ui/riversView.js:107
+msgid "modelled daily discharge"
+msgstr "modeliran dnevni pretok"
+
+#: src/ui/riversView.js:109
+msgid "peak %s on %s"
+msgstr "vrh %s dne %s"
+
+#: src/ui/riversView.js:135
+msgid "-%d h"
+msgstr "-%d h"
+
+#: src/ui/riversView.js:135
+msgid "now"
+msgstr "zdaj"
+
+#: src/ui/riversView.js:139
+msgid "measured %s"
+msgstr "meritev %s"
+
+#: src/ui/riversView.js:141
+msgid "the chart fills in as readings are collected"
+msgstr "graf se zapolni, ko se meritve naberejo"
+
+#: src/ui/riversView.js:144
+msgid "custom"
+msgstr "lastni"
+
+#: src/ui/riversView.js:145
+msgid "alert thresholds %s %s (%s)"
+msgstr "pragovi %s %s (%s)"
+
+#: src/ui/riversView.js:156
+msgid "GloFAS model, ~5 km grid; band = ensemble range"
+msgstr "model GloFAS, mreža ~5 km; pas = razpon ansambla"
+
+#: src/ui/riversView.js:163
+msgid "update failed: %s"
+msgstr "osvežitev ni uspela: %s"
+

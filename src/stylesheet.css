@@ -1,0 +1,130 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Secondary text is dimmed with actor opacity in code rather than with fixed colours,
+ * so the menu reads well with both the dark and the light shell style.
+ */
+
+/* ---------- top bar ---------- */
+.uwi-panel { spacing: 8px; }
+.uwi-panel-current { spacing: 3px; }
+.uwi-panel-current-temp { font-weight: bold; font-size: 1.05em; }
+.uwi-panel-day { spacing: 3px; }
+.uwi-panel-weekday { font-size: 0.66em; }
+.uwi-panel-today .uwi-panel-weekday { color: #ffbe6f; font-weight: bold; }
+.uwi-panel-temp { font-size: 0.82em; }
+.uwi-panel-river { spacing: 2px; padding: 1px 6px; border-radius: 8px; margin-right: 2px; }
+.uwi-panel-river-value { font-weight: bold; font-size: 0.92em; }
+.uwi-panel-river.uwi-alert-yellow { background-color: rgba(246, 211, 45, 0.25); }
+.uwi-panel-river.uwi-alert-orange { background-color: rgba(255, 120, 0, 0.35); }
+.uwi-panel-river.uwi-alert-red { background-color: rgba(237, 51, 59, 0.55); }
+
+/* ---------- menu layout ---------- */
+.uwi-locations { spacing: 6px; padding: 4px 14px 2px 14px; }
+.uwi-location-button {
+  padding: 4px 12px;
+  border-radius: 99px;
+  background-color: rgba(128, 128, 128, 0.14);
+}
+.uwi-location-button:hover, .uwi-location-button:focus { background-color: rgba(128, 128, 128, 0.24); }
+.uwi-location-button:checked { background-color: rgba(255, 190, 111, 0.30); font-weight: bold; }
+
+.uwi-columns { spacing: 22px; padding: 6px 14px 4px 14px; }
+.uwi-column-left { width: 430px; spacing: 6px; }
+.uwi-column-right { width: 480px; spacing: 6px; }
+
+.uwi-small { font-size: 0.85em; }
+.uwi-warning { color: #ffa348; }
+.uwi-heading { font-size: 0.78em; font-weight: bold; letter-spacing: 1px; margin-top: 8px; }
+.uwi-heading-day { margin-top: 2px; color: #ffbe6f; }
+.uwi-link { font-size: 0.78em; padding: 2px 8px; margin-top: 8px; border-radius: 8px; color: #62a0ea; }
+.uwi-link:hover, .uwi-link:focus { background-color: rgba(128, 128, 128, 0.18); }
+
+/* ---------- current conditions ---------- */
+.uwi-current-section { spacing: 6px; }
+.uwi-current { spacing: 10px; }
+.uwi-current-temp { font-size: 3.1em; font-weight: 300; }
+.uwi-current-texts { spacing: 1px; padding-left: 6px; }
+.uwi-location { font-weight: bold; font-size: 1.1em; }
+.uwi-details { spacing: 6px; padding: 8px 4px; border-radius: 12px; background-color: rgba(128, 128, 128, 0.10); }
+.uwi-details-row { spacing: 4px; }
+.uwi-details-cell { spacing: 4px; }
+.uwi-details-value { font-weight: bold; font-size: 0.92em; }
+.uwi-details-caption { font-size: 0.75em; }
+
+/* ---------- week ---------- */
+.uwi-week { spacing: 2px; }
+.uwi-day { border-radius: 10px; padding: 3px 8px; }
+.uwi-day:hover { background-color: rgba(128, 128, 128, 0.14); }
+.uwi-day:focus { background-color: rgba(128, 128, 128, 0.20); }
+.uwi-day:checked { background-color: rgba(255, 190, 111, 0.18); }
+.uwi-day-row { spacing: 8px; }
+.uwi-day-name { width: 130px; }
+.uwi-day-weekday { font-weight: bold; }
+.uwi-day-precipitation { width: 70px; }
+.uwi-day-amount { color: #62a0ea; font-size: 0.9em; font-weight: bold; }
+.uwi-day-amount.uwi-warning { color: #ffa348; }
+.uwi-day-probability { color: #62a0ea; font-size: 0.8em; }
+.uwi-day-low { width: 34px; text-align: right; }
+.uwi-day-high { width: 34px; font-weight: bold; }
+.uwi-temperature-bar { width: 70px; height: 6px; }
+
+/* ---------- selected day ---------- */
+.uwi-day-details { spacing: 6px; }
+.uwi-day-summary { font-size: 0.9em; }
+.uwi-hourly-chart { width: 470px; height: 130px; margin-top: 2px; }
+.uwi-legend { font-size: 0.72em; }
+.uwi-hours { padding: 4px 0; border-radius: 10px; background-color: rgba(128, 128, 128, 0.08); }
+.uwi-hour { spacing: 1px; }
+.uwi-hour-time { font-size: 0.75em; }
+.uwi-hour-temp { font-size: 0.85em; font-weight: bold; }
+.uwi-hour-amount { font-size: 0.72em; color: #62a0ea; }
+.uwi-divergence {
+  font-size: 0.85em;
+  color: #ffa348;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: rgba(255, 163, 72, 0.12);
+}
+.uwi-models { spacing: 1px; }
+.uwi-model { spacing: 8px; font-size: 0.85em; }
+.uwi-model-header { font-size: 0.75em; }
+.uwi-model-name { width: 100px; }
+.uwi-model-icon { width: 20px; }
+.uwi-model-temp { width: 70px; }
+.uwi-model-amount { width: 70px; color: #62a0ea; }
+.uwi-model-header .uwi-model-amount { color: inherit; }
+.uwi-model-info { font-size: 0.85em; }
+
+/* ---------- ARSO text forecast ---------- */
+.uwi-arso-text { spacing: 4px; }
+.uwi-arso-paragraph { font-size: 0.85em; }
+
+/* ---------- rivers ---------- */
+.uwi-rivers { spacing: 3px; }
+.uwi-rivers-header { spacing: 6px; }
+.uwi-river-rows { spacing: 2px; }
+.uwi-river { border-radius: 10px; padding: 2px 8px; }
+.uwi-river:hover { background-color: rgba(128, 128, 128, 0.14); }
+.uwi-river:checked { background-color: rgba(98, 160, 234, 0.16); }
+.uwi-river-row { spacing: 0; }
+.uwi-river-line { spacing: 8px; }
+.uwi-river-name { font-weight: bold; }
+.uwi-river-value { font-weight: bold; font-size: 1.05em; }
+.uwi-river-details { font-size: 0.8em; }
+.uwi-river-chart { width: 428px; height: 96px; }
+.uwi-river-footer { font-size: 0.75em; }
+
+.uwi-alert-normal { color: #99c1f1; }
+.uwi-alert-yellow { color: #f8e45c; }
+.uwi-alert-orange { color: #ffa348; }
+.uwi-alert-red { color: #ff7b7b; }
+.uwi-panel-river.uwi-alert-normal, .uwi-panel-river.uwi-alert-yellow { color: inherit; }
+.uwi-panel-river.uwi-alert-orange .uwi-panel-river-value,
+.uwi-panel-river.uwi-alert-red .uwi-panel-river-value { color: #ffffff; }
+
+.uwi-badge { font-size: 0.7em; font-weight: bold; padding: 1px 6px; border-radius: 6px; color: #1e1e1e; }
+.uwi-badge-yellow { background-color: #f6d32d; }
+.uwi-badge-orange { background-color: #ff7800; }
+.uwi-badge-red { background-color: #ed333b; color: #ffffff; }

@@ -1,0 +1,22 @@
+{
+  "name": "urosk-weather-indicator",
+  "version": "1.0.0",
+  "description": "Multi-model weather forecast for the GNOME top bar (development tooling only; the extension itself has no npm dependencies).",
+  "private": true,
+  "type": "module",
+  "author": "Uroš Kristan <uros.kristan@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urkl/urosk-weather-indicator.git"
+  },
+  "scripts": {
+    "lint": "eslint src tests scripts",
+    "test": "gjs -m tests/run.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
+  }
+}

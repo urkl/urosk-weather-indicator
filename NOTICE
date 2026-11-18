@@ -1,0 +1,20 @@
+Urosk Weather Indicator
+Copyright 2026 Uroš Kristan
+
+This product includes software developed by Uroš Kristan
+(https://github.com/urkl/urosk-weather-indicator), licensed under the Apache License 2.0.
+
+Third-party components:
+
+  Meteocons weather icons (src/icons/*.svg)
+  Copyright (c) 2020-2021 Bas Milius
+  MIT License, see src/icons/LICENSE-meteocons
+  https://github.com/basmilius/weather-icons
+
+Data shown by the extension (not distributed with it):
+
+  Weather forecast and geocoding by Open-Meteo.com, CC BY 4.0
+  (geocoding based on GeoNames, CC BY 4.0).
+  River discharge: Open-Meteo Flood API, which contains modified Copernicus Emergency
+  Management Service information (GloFAS).
+  River gauges and text forecast for Slovenia: Slovenian Environment Agency (ARSO).

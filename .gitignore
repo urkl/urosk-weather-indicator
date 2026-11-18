@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+/build/
+/dist/
+/node_modules/
+*.mo
+src/schemas/gschemas.compiled
+__pycache__/

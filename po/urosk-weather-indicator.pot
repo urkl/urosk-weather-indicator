@@ -1,0 +1,764 @@
+# Translation template for urosk-weather-indicator.
+# SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: urosk-weather-indicator\n"
+"POT-Creation-Date: 2026-11-18 12:16+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/lib/arsoText.js:16 src/ui/dayView.js:52 src/ui/weekView.js:46
+msgid "Today"
+msgstr ""
+
+#: src/lib/arsoText.js:17
+msgid "Tomorrow"
+msgstr ""
+
+#: src/lib/arsoText.js:18
+msgid "Outlook"
+msgstr ""
+
+#: src/lib/forecast.js:22
+msgid "DWD, 2 km, up to 2 days"
+msgstr ""
+
+#: src/lib/forecast.js:23
+msgid "DWD, 7 km, up to 5 days"
+msgstr ""
+
+#: src/lib/forecast.js:24
+msgid "IFS 0.25°, 7+ days"
+msgstr ""
+
+#: src/lib/forecast.js:25
+msgid "NOAA, 7+ days"
+msgstr ""
+
+#: src/lib/forecast.js:26
+msgid "AROME/ARPEGE, up to 4 days"
+msgstr ""
+
+#: src/lib/forecast.js:27
+msgid "Met Office, up to 7 days"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "N"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "NE"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "E"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "SE"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "S"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "SW"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "W"
+msgstr ""
+
+#: src/lib/format.js:72
+msgid "NW"
+msgstr ""
+
+#: src/lib/format.js:279
+msgid "just now"
+msgstr ""
+
+#: src/lib/format.js:282
+msgid "%d min ago"
+msgid_plural "%d min ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/lib/format.js:285
+msgid "%d h ago"
+msgid_plural "%d h ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/lib/rivers/arso.js:23
+msgid "low flow"
+msgstr ""
+
+#: src/lib/rivers/arso.js:24 src/lib/rivers/arso.js:25
+msgid "normal flow"
+msgstr ""
+
+#: src/lib/rivers/arso.js:26
+msgid "high flow"
+msgstr ""
+
+#: src/lib/rivers/arso.js:27
+msgid "first flood level"
+msgstr ""
+
+#: src/lib/rivers/arso.js:28
+msgid "second flood level"
+msgstr ""
+
+#: src/lib/rivers/arso.js:29
+msgid "third flood level"
+msgstr ""
+
+#: src/lib/rivers/gauges.js:16
+msgid "Yellow alert"
+msgstr ""
+
+#: src/lib/rivers/gauges.js:16
+msgid "Orange alert"
+msgstr ""
+
+#: src/lib/rivers/gauges.js:16
+msgid "Red alert"
+msgstr ""
+
+#: src/lib/weatherCodes.js:15
+msgid "Clear sky"
+msgstr ""
+
+#: src/lib/weatherCodes.js:16
+msgid "Mainly clear"
+msgstr ""
+
+#: src/lib/weatherCodes.js:17
+msgid "Partly cloudy"
+msgstr ""
+
+#: src/lib/weatherCodes.js:18
+msgid "Overcast"
+msgstr ""
+
+#: src/lib/weatherCodes.js:19
+msgid "Fog"
+msgstr ""
+
+#: src/lib/weatherCodes.js:20
+msgid "Freezing fog"
+msgstr ""
+
+#: src/lib/weatherCodes.js:21
+msgid "Light drizzle"
+msgstr ""
+
+#: src/lib/weatherCodes.js:22
+msgid "Drizzle"
+msgstr ""
+
+#: src/lib/weatherCodes.js:23
+msgid "Heavy drizzle"
+msgstr ""
+
+#: src/lib/weatherCodes.js:24
+msgid "Freezing drizzle"
+msgstr ""
+
+#: src/lib/weatherCodes.js:25
+msgid "Heavy freezing drizzle"
+msgstr ""
+
+#: src/lib/weatherCodes.js:26
+msgid "Light rain"
+msgstr ""
+
+#: src/lib/weatherCodes.js:27
+msgid "Rain"
+msgstr ""
+
+#: src/lib/weatherCodes.js:28
+msgid "Heavy rain"
+msgstr ""
+
+#: src/lib/weatherCodes.js:29
+msgid "Light freezing rain"
+msgstr ""
+
+#: src/lib/weatherCodes.js:30
+msgid "Freezing rain"
+msgstr ""
+
+#: src/lib/weatherCodes.js:31
+msgid "Light snowfall"
+msgstr ""
+
+#: src/lib/weatherCodes.js:32
+msgid "Snowfall"
+msgstr ""
+
+#: src/lib/weatherCodes.js:33
+msgid "Heavy snowfall"
+msgstr ""
+
+#: src/lib/weatherCodes.js:34
+msgid "Snow grains"
+msgstr ""
+
+#: src/lib/weatherCodes.js:35
+msgid "Light showers"
+msgstr ""
+
+#: src/lib/weatherCodes.js:36
+msgid "Showers"
+msgstr ""
+
+#: src/lib/weatherCodes.js:37
+msgid "Violent showers"
+msgstr ""
+
+#: src/lib/weatherCodes.js:38
+msgid "Snow showers"
+msgstr ""
+
+#: src/lib/weatherCodes.js:39
+msgid "Heavy snow showers"
+msgstr ""
+
+#: src/lib/weatherCodes.js:40
+msgid "Thunderstorm"
+msgstr ""
+
+#: src/lib/weatherCodes.js:41
+msgid "Thunderstorm with hail"
+msgstr ""
+
+#: src/lib/weatherCodes.js:42
+msgid "Severe thunderstorm with hail"
+msgstr ""
+
+#: src/lib/weatherCodes.js:45
+msgid "No data"
+msgstr ""
+
+#: src/prefs/generalPage.js:16
+msgid "Weather forecast and geocoding · CC BY 4.0"
+msgstr ""
+
+#: src/prefs/generalPage.js:17
+msgid "Modelled river discharge via the Open-Meteo Flood API"
+msgstr ""
+
+#: src/prefs/generalPage.js:18
+msgid "Live river gauges and text forecast for Slovenia"
+msgstr ""
+
+#: src/prefs/generalPage.js:19
+msgid "Weather icons by Bas Milius · MIT"
+msgstr ""
+
+#: src/prefs/generalPage.js:26
+msgid "General"
+msgstr ""
+
+#: src/prefs/generalPage.js:28
+msgid "Top bar"
+msgstr ""
+
+#: src/prefs/generalPage.js:29
+msgid "Days"
+msgstr ""
+
+#: src/prefs/generalPage.js:29
+msgid "0 shows only the current conditions"
+msgstr ""
+
+#: src/prefs/generalPage.js:30
+msgid "Day style"
+msgstr ""
+
+#: src/prefs/generalPage.js:31
+msgid "Weekday, icon, high and low"
+msgstr ""
+
+#: src/prefs/generalPage.js:32
+msgid "Compact: icon and high"
+msgstr ""
+
+#: src/prefs/generalPage.js:34
+msgid "Current temperature"
+msgstr ""
+
+#: src/prefs/generalPage.js:35
+msgid "Position"
+msgstr ""
+
+#: src/prefs/generalPage.js:36
+msgid "Left"
+msgstr ""
+
+#: src/prefs/generalPage.js:37
+msgid "Center"
+msgstr ""
+
+#: src/prefs/generalPage.js:38
+msgid "Right"
+msgstr ""
+
+#: src/prefs/generalPage.js:42
+msgid "Units"
+msgstr ""
+
+#: src/prefs/generalPage.js:43
+msgid "Temperature"
+msgstr ""
+
+#: src/prefs/generalPage.js:44
+msgid "Celsius (°C)"
+msgstr ""
+
+#: src/prefs/generalPage.js:45
+msgid "Fahrenheit (°F)"
+msgstr ""
+
+#: src/prefs/generalPage.js:47
+msgid "Wind speed"
+msgstr ""
+
+#: src/prefs/generalPage.js:51
+msgid "knots"
+msgstr ""
+
+#: src/prefs/generalPage.js:53
+msgid "Precipitation"
+msgstr ""
+
+#: src/prefs/generalPage.js:54
+msgid "millimetres"
+msgstr ""
+
+#: src/prefs/generalPage.js:55
+msgid "inches"
+msgstr ""
+
+#: src/prefs/generalPage.js:57
+msgid "Pressure"
+msgstr ""
+
+#: src/prefs/generalPage.js:65
+msgid "Forecast"
+msgstr ""
+
+#: src/prefs/generalPage.js:66
+msgid "Six models from Open-Meteo in one request, no API key needed."
+msgstr ""
+
+#: src/prefs/generalPage.js:68
+msgid "Refresh interval"
+msgstr ""
+
+#: src/prefs/generalPage.js:68
+msgid "minutes"
+msgstr ""
+
+#: src/prefs/generalPage.js:69
+msgid "ARSO text forecast"
+msgstr ""
+
+#: src/prefs/generalPage.js:70
+msgid "National forecast for Slovenia by the Slovenian Environment Agency (in Slovenian)"
+msgstr ""
+
+#: src/prefs/generalPage.js:73
+msgid "Data sources"
+msgstr ""
+
+#: src/prefs/generalPage.js:76
+msgid "Website"
+msgstr ""
+
+#: src/prefs/locationsPage.js:36
+msgid "Coordinates"
+msgstr ""
+
+#: src/prefs/locationsPage.js:49
+msgid "Locations"
+msgstr ""
+
+#: src/prefs/locationsPage.js:53
+msgid "Saved locations"
+msgstr ""
+
+#: src/prefs/locationsPage.js:54
+msgid "The selected location is shown in the top bar. With several locations, switch between them at the top of the menu."
+msgstr ""
+
+#: src/prefs/locationsPage.js:60
+msgid "Add a location"
+msgstr ""
+
+#: src/prefs/locationsPage.js:61
+msgid "Search by place name, or enter coordinates as “latitude, longitude”."
+msgstr ""
+
+#: src/prefs/locationsPage.js:62
+msgid "Search for a place"
+msgstr ""
+
+#: src/prefs/locationsPage.js:85 src/prefs/riversPage.js:118
+msgid "%s is already saved"
+msgstr ""
+
+#: src/prefs/locationsPage.js:91 src/prefs/riversPage.js:124
+msgid "Added %s"
+msgstr ""
+
+#: src/prefs/locationsPage.js:112 src/prefs/riversPage.js:156
+msgid "Removed %s"
+msgstr ""
+
+#: src/prefs/locationsPage.js:123
+msgid "No saved locations yet"
+msgstr ""
+
+#: src/prefs/locationsPage.js:124
+msgid "Search for a place below to add your first location."
+msgstr ""
+
+#: src/prefs/locationsPage.js:140
+msgid "Show in the top bar"
+msgstr ""
+
+#: src/prefs/riversPage.js:19
+msgid "ARSO live gauge (Slovenia)"
+msgstr ""
+
+#: src/prefs/riversPage.js:20
+msgid "GloFAS modelled discharge"
+msgstr ""
+
+#: src/prefs/riversPage.js:30
+msgid "Rivers"
+msgstr ""
+
+#: src/prefs/riversPage.js:37
+msgid "River gauges"
+msgstr ""
+
+#: src/prefs/riversPage.js:38
+msgid "Water level and discharge of rivers near you, with alert levels."
+msgstr ""
+
+#: src/prefs/riversPage.js:40
+msgid "Show rivers in the menu"
+msgstr ""
+
+#: src/prefs/riversPage.js:41
+msgid "Show the first gauge in the top bar"
+msgstr ""
+
+#: src/prefs/riversPage.js:44
+msgid "Saved gauges"
+msgstr ""
+
+#: src/prefs/riversPage.js:49
+msgid "Add a live gauge in Slovenia (ARSO)"
+msgstr ""
+
+#: src/prefs/riversPage.js:50
+msgid "Measured water level and discharge, updated every 30 minutes, with the official high-water thresholds."
+msgstr ""
+
+#: src/prefs/riversPage.js:51
+msgid "Search by river or place, e.g. Sava"
+msgstr ""
+
+#: src/prefs/riversPage.js:58
+msgid "no current reading"
+msgstr ""
+
+#: src/prefs/riversPage.js:72
+msgid "Add any river worldwide (GloFAS)"
+msgstr ""
+
+#: src/prefs/riversPage.js:73
+msgid "Modelled daily discharge with a 10-day forecast. Pick a point on the river itself — the model grid is about 5 km."
+msgstr ""
+
+#: src/prefs/riversPage.js:74
+msgid "Search for a place on the river"
+msgstr ""
+
+#: src/prefs/riversPage.js:134
+msgid "No saved gauges yet"
+msgstr ""
+
+#: src/prefs/riversPage.js:135
+msgid "Add a gauge below."
+msgstr ""
+
+#: src/prefs/riversPage.js:170
+msgid "Water level in cm. Leave all at 0 to use the official ARSO thresholds."
+msgstr ""
+
+#: src/prefs/riversPage.js:171
+msgid "Discharge in m³/s. GloFAS has no official thresholds; 0 = not set."
+msgstr ""
+
+#: src/prefs/riversPage.js:172
+msgid "Alert thresholds"
+msgstr ""
+
+#: src/prefs/riversPage.js:174
+msgid "Yellow alert from"
+msgstr ""
+
+#: src/prefs/riversPage.js:174
+msgid "Orange alert from"
+msgstr ""
+
+#: src/prefs/riversPage.js:174
+msgid "Red alert from"
+msgstr ""
+
+#: src/prefs/rows.js:76
+msgid "Move up"
+msgstr ""
+
+#: src/prefs/rows.js:77
+msgid "Move down"
+msgstr ""
+
+#: src/prefs/rows.js:78
+msgid "Remove"
+msgstr ""
+
+#: src/prefs/rows.js:165
+msgid "Searching…"
+msgstr ""
+
+#: src/prefs/rows.js:173
+msgid "Search failed"
+msgstr ""
+
+#: src/prefs/rows.js:180
+msgid "Nothing found"
+msgstr ""
+
+#: src/prefs/rows.js:180
+msgid "Try another spelling or enter coordinates as “latitude, longitude”."
+msgstr ""
+
+#: src/ui/currentView.js:38
+msgid "humidity"
+msgstr ""
+
+#: src/ui/currentView.js:38
+msgid "wind"
+msgstr ""
+
+#: src/ui/currentView.js:39
+msgid "gusts"
+msgstr ""
+
+#: src/ui/currentView.js:39
+msgid "pressure"
+msgstr ""
+
+#: src/ui/currentView.js:40 src/ui/dayView.js:113
+msgid "precipitation"
+msgstr ""
+
+#: src/ui/currentView.js:40
+msgid "UV today"
+msgstr ""
+
+#: src/ui/currentView.js:41
+msgid "sunrise"
+msgstr ""
+
+#: src/ui/currentView.js:41
+msgid "sunset"
+msgstr ""
+
+#: src/ui/currentView.js:74
+msgid "feels like %s"
+msgstr ""
+
+#: src/ui/dayView.js:57
+msgid "— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)"
+msgstr ""
+
+#: src/ui/dayView.js:77
+msgid "precipitation %s–%s"
+msgstr ""
+
+#: src/ui/dayView.js:79
+msgid "temperature %s…%s / %s…%s"
+msgstr ""
+
+#: src/ui/dayView.js:84
+msgid "Models disagree: %s — the forecast is uncertain."
+msgstr ""
+
+#: src/ui/dayView.js:98
+msgid "precipitation %s"
+msgstr ""
+
+#: src/ui/dayView.js:99
+msgid "precipitation %s (%s)"
+msgstr ""
+
+#: src/ui/dayView.js:101
+msgid "wind up to %s, gusts %s"
+msgstr ""
+
+#: src/ui/dayView.js:103
+msgid "UV %s"
+msgstr ""
+
+#: src/ui/dayView.js:105
+msgid "sun %s–%s"
+msgstr ""
+
+#: src/ui/dayView.js:112
+msgid "model"
+msgstr ""
+
+#: src/ui/dayView.js:113
+msgid "high / low"
+msgstr ""
+
+#: src/ui/dayView.js:130
+msgid "The other models do not reach this day (shorter range)."
+msgstr ""
+
+#: src/ui/indicator.js:48
+msgid "Weather"
+msgstr ""
+
+#: src/ui/indicator.js:296
+msgid "Set a location"
+msgstr ""
+
+#: src/ui/indicator.js:297
+msgid "No location"
+msgstr ""
+
+#: src/ui/indicator.js:297
+msgid "Add a location in the settings."
+msgstr ""
+
+#: src/ui/indicator.js:298
+msgid "Open Settings and search for a place."
+msgstr ""
+
+#: src/ui/indicator.js:302
+msgid "Forecast not available: %s"
+msgstr ""
+
+#: src/ui/indicator.js:303
+msgid "Loading the forecast…"
+msgstr ""
+
+#: src/ui/indicator.js:304
+msgid "Error: %s"
+msgstr ""
+
+#: src/ui/indicator.js:304
+msgid "Loading…"
+msgstr ""
+
+#: src/ui/indicator.js:330
+msgid "Update failed: %s · last forecast %s"
+msgstr ""
+
+#: src/ui/indicator.js:331
+msgid "Updated %s · %s"
+msgstr ""
+
+#: src/ui/indicator.js:332
+msgid "Weather data by Open-Meteo.com (CC BY 4.0)"
+msgstr ""
+
+#: src/ui/menuView.js:66
+msgid "Refresh"
+msgstr ""
+
+#: src/ui/menuView.js:67
+msgid "Settings"
+msgstr ""
+
+#: src/ui/menuView.js:106
+msgid "%d DAYS  ·  median of models"
+msgstr ""
+
+#: src/ui/menuView.js:141
+msgid "ARSO FORECAST  ·  %s"
+msgstr ""
+
+#: src/ui/panelView.js:63
+msgid "today"
+msgstr ""
+
+#: src/ui/riversView.js:27
+msgid "RIVERS"
+msgstr ""
+
+#: src/ui/riversView.js:82
+msgid "no data"
+msgstr ""
+
+#: src/ui/riversView.js:103
+msgid "water %s"
+msgstr ""
+
+#: src/ui/riversView.js:105
+msgid "%s per hour"
+msgstr ""
+
+#: src/ui/riversView.js:107
+msgid "modelled daily discharge"
+msgstr ""
+
+#: src/ui/riversView.js:109
+msgid "peak %s on %s"
+msgstr ""
+
+#: src/ui/riversView.js:135
+msgid "-%d h"
+msgstr ""
+
+#: src/ui/riversView.js:135
+msgid "now"
+msgstr ""
+
+#: src/ui/riversView.js:139
+msgid "measured %s"
+msgstr ""
+
+#: src/ui/riversView.js:141
+msgid "the chart fills in as readings are collected"
+msgstr ""
+
+#: src/ui/riversView.js:144
+msgid "custom"
+msgstr ""
+
+#: src/ui/riversView.js:145
+msgid "alert thresholds %s %s (%s)"
+msgstr ""
+
+#: src/ui/riversView.js:156
+msgid "GloFAS model, ~5 km grid; band = ensemble range"
+msgstr ""
+
+#: src/ui/riversView.js:163
+msgid "update failed: %s"
+msgstr ""
+

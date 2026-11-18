@@ -1,0 +1,6 @@
+{
+  "uuid": "screenshot-helper@urosk.net",
+  "name": "Screenshot helper (development only)",
+  "description": "Takes the README screenshots of Urosk Weather Indicator in a headless GNOME Shell. Never install this in a real session.",
+  "shell-version": ["48", "49", "50"]
+}
