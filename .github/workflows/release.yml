@@ -1,0 +1,150 @@
+# SPDX-FileCopyrightText: 2026 Uroš Kristan <uros.kristan@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+# Publishes a GitHub release when a tag vX.Y.Z is pushed: lint, tests and translation check,
+# `make zip`, the version in src/metadata.json, package.json and CHANGELOG.md must match the
+# tag, then a release with the package and SHA256SUMS (the names scripts/install-latest.sh
+# downloads) and the CHANGELOG section as its notes.
+#
+# Run it by hand (Actions → Release → Run workflow) for a pushed tag that has no release yet,
+# or with "dry run" to build and check a tag without publishing anything. A published release
+# is never replaced: its package has a checksum people may already have verified.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Pushed tag to release, e.g. v1.2.0
+        required: true
+        type: string
+      dry_run:
+        description: Dry run (build and check only, publish nothing)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ inputs.tag || github.ref_name }}
+
+jobs:
+  # Runs the build tools (npm packages too) with a read-only token
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check the tag name
+        run: |
+          if ! [[ $TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::'$TAG' is not a version tag like v1.2.0"
+            exit 1
+          fi
+
+      - name: Check out the tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: refs/tags/${{ env.TAG }}
+          persist-credentials: false
+
+      # From the commit of this workflow, so an older tag can be released with today's checks
+      - name: Check out the release tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: .release-tools
+          sparse-checkout: scripts/release-notes.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - name: Refuse an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+        run: |
+          if url=$(gh release view "$TAG" --json url --jq .url 2>/dev/null); then
+            if [ "$DRY_RUN" = true ]; then
+              echo "::notice::$TAG is already released ($url); dry run, nothing is published"
+            else
+              echo "::error::$TAG is already released: $url. A published package is not replaced; release a new version."
+              exit 1
+            fi
+          fi
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install GJS and GLib tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gjs libglib2.0-bin zip
+
+      - run: npm ci --ignore-scripts
+      - run: make check
+      - run: make zip
+
+      - name: Check versions, CHANGELOG and packages; write the release notes
+        run: python3 -I .release-tools/scripts/release-notes.py "$TAG" --dist dist --output release/notes.md
+
+      - name: Summary
+        run: |
+          cp dist/*.shell-extension.zip dist/SHA256SUMS release/
+          {
+            echo "## $TAG"
+            echo
+            echo '```'
+            cat release/SHA256SUMS
+            echo '```'
+            echo
+            cat release/notes.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-${{ env.TAG }}
+          path: release/
+          if-no-files-found: error
+
+  # Only the GitHub CLI runs with the token that can write releases
+  publish:
+    needs: build
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release-${{ env.TAG }}
+          path: release
+
+      - name: Create the release
+        run: |
+          gh release create "$TAG" release/*.shell-extension.zip release/SHA256SUMS \
+            --verify-tag --title "Urosk Weather Indicator ${TAG#v}" --notes-file release/notes.md
+
+      # What scripts/install-latest.sh downloads, from the public URLs
+      - name: Check the published files
+        run: |
+          set -euo pipefail
+          check() { # base URL
+            mkdir -p check && rm -f check/*
+            for file in release/*.shell-extension.zip release/SHA256SUMS; do
+              curl -fsSL --retry 3 -o "check/$(basename "$file")" "$1/$(basename "$file")"
+            done
+            (cd check && sha256sum -c SHA256SUMS)
+          }
+          check "https://github.com/$GH_REPO/releases/download/$TAG"
+          if [ "$(gh api "repos/$GH_REPO/releases/latest" --jq .tag_name)" = "$TAG" ]; then
+            check "https://github.com/$GH_REPO/releases/latest/download"
+          fi
+          echo "Published: https://github.com/$GH_REPO/releases/tag/$TAG" >> "$GITHUB_STEP_SUMMARY"

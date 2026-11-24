@@ -225,16 +225,17 @@ src/                  razširitev (to se namesti)
   icons/              ikone Meteocons (SVG)
 po/                   predloga prevodov in prevodi
 tests/                enotski testi za src/lib, tečejo v GJS, na pravih odgovorih storitev
-scripts/              orodja za prevode, samodejni posnetki zaslona
+scripts/              orodja za prevode in izdaje, samodejni posnetki zaslona
 ```
 
 | Ukaz | Kaj naredi |
 | --- | --- |
-| `make test` | enotski testi (GJS) |
+| `make test` | enotski testi (GJS in Python `tests/test_*.py`) |
 | `npm ci && make lint` | ESLint |
 | `make i18n-check` | vsi nizi prevedeni, predloga posodobljena |
 | `make install` | zgradi in namesti za trenutnega uporabnika |
 | `make zip` | paket `dist/urosk-weather-indicator@urosk.net.shell-extension.zip` in `dist/SHA256SUMS` |
+| `make release-check` | vse, kar potrebuje izdaja: `make check`, `make zip`, različice in CHANGELOG |
 | `make screenshots` | znova ustvari `docs/screenshots/` (angleško) in `docs/screenshots/sl/` (slovensko) |
 
 `scripts/screenshots.sh` zažene **GNOME Shell brez zaslona (headless)** z lastno sejo D-Bus in
@@ -242,9 +243,25 @@ začasnimi mapami z nastavitvami (tvojega namizja ne spreminja), namesti razšir
 razširitev, počaka na žive podatke, odpre meni in nastavitve ter shrani posnetke. Hkrati je to
 preizkus od začetka do konca: ne uspe, če razširitev ne naloži podatkov.
 
-Izdaja ima oznako `vX.Y.Z` in obe datoteki iz `make zip` kot sredstvi
-(`urosk-weather-indicator@urosk.net.shell-extension.zip` in `SHA256SUMS`); skripta
-`scripts/install-latest.sh` ju prenese po teh imenih.
+### Izdaja nove verzije
+
+Izdaje zgradi in objavi GitHub Actions ([`release.yml`](.github/workflows/release.yml)), ko
+potisneš oznako `vX.Y.Z`:
+
+1. Nastavi različico v `src/metadata.json` (`version-name`) in v `package.json`: `npm version X.Y.Z --no-git-tag-version` posodobi tudi `package-lock.json`.  
+2. V `CHANGELOG.md` dodaj razdelek `## [X.Y.Z] — YYYY-MM-DD`; to postane besedilo izdaje.  
+3. `make release-check` požene vse preverbe workflowa in zapiše besedilo v `build/release-notes.md`.  
+4. Commitaj, nato označi in potisni: `git tag -a vX.Y.Z -m "Urosk Weather Indicator X.Y.Z" && git push origin main vX.Y.Z`.
+
+Workflow požene lint, teste in preverbo prevodov ter `make zip`, nato preveri, da se različice in
+CHANGELOG ujemajo z oznako. Potem objavi izdajo z obema datotekama iz `make zip` kot sredstvoma
+(`urosk-weather-indicator@urosk.net.shell-extension.zip` in `SHA256SUMS`, imeni, ki ju prenese
+`scripts/install-latest.sh`) in ju preveri z javnih povezav. Uporablja le lastni `GITHUB_TOKEN`
+repozitorija; gradnja ima samo pravico branja, pisati sme le objava.
+
+Obstoječe izdaje nikoli ne zamenja. *Actions → Release → Run workflow* izda potisnjeno oznako, ki
+še nima izdaje, z možnostjo *Dry run* pa oznako le zgradi in preveri, ne da bi kaj objavil (datoteke
+ostanejo kot artefakt zagona).
 
 Razhroščevanje v gnezdeni seji:
 

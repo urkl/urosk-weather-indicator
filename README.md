@@ -229,16 +229,17 @@ src/                  the extension (what is installed)
   icons/              Meteocons SVG icons
 po/                   translation template and translations
 tests/                unit tests for src/lib, run with GJS, using real API responses as fixtures
-scripts/              i18n tooling, screenshot automation
+scripts/              i18n and release tooling, screenshot automation
 ```
 
 | Command | What it does |
 | --- | --- |
-| `make test` | unit tests (`gjs -m tests/run.js`) |
+| `make test` | unit tests (`gjs -m tests/run.js` and Python `tests/test_*.py`) |
 | `npm ci && make lint` | ESLint |
 | `make i18n-check` | every string translated, template up to date |
 | `make install` | build and install for the current user |
 | `make zip` | package `dist/urosk-weather-indicator@urosk.net.shell-extension.zip` and `dist/SHA256SUMS` |
+| `make release-check` | everything a release needs: `make check`, `make zip`, versions and CHANGELOG |
 | `make screenshots` | regenerate `docs/screenshots/` (English) and `docs/screenshots/sl/` (Slovenian) |
 
 `scripts/screenshots.sh` starts a **headless GNOME Shell** with its own D-Bus session and
@@ -246,9 +247,25 @@ temporary config directories (your desktop is not touched), installs the extensi
 a small helper extension, waits for live data, opens the menu and the preferences and saves the
 screenshots. It doubles as an end-to-end check: it fails if the extension does not load data.
 
-A release is tagged `vX.Y.Z` and has both files from `make zip` as assets
-(`urosk-weather-indicator@urosk.net.shell-extension.zip` and `SHA256SUMS`);
-`scripts/install-latest.sh` downloads them by these names.
+### Releasing a new version
+
+Releases are built and published by GitHub Actions
+([`release.yml`](.github/workflows/release.yml)) when a tag `vX.Y.Z` is pushed:
+
+1. Set the version in `src/metadata.json` (`version-name`) and in `package.json`: `npm version X.Y.Z --no-git-tag-version` also updates `package-lock.json`.  
+2. Add a section `## [X.Y.Z] — YYYY-MM-DD` to `CHANGELOG.md`; it becomes the text of the release.  
+3. `make release-check` runs every check of the workflow and writes the notes to `build/release-notes.md`.  
+4. Commit, then tag and push: `git tag -a vX.Y.Z -m "Urosk Weather Indicator X.Y.Z" && git push origin main vX.Y.Z`.
+
+The workflow runs lint, tests and the translation check, `make zip`, and checks that the versions
+and the CHANGELOG match the tag. It then publishes the release with both files from `make zip` as
+assets (`urosk-weather-indicator@urosk.net.shell-extension.zip` and `SHA256SUMS`, the names
+`scripts/install-latest.sh` downloads) and checks them from the public URLs. It uses only the
+repository's own `GITHUB_TOKEN`; the build runs with read access, only publishing can write.
+
+An existing release is never replaced. *Actions → Release → Run workflow* releases a pushed tag
+that has no release yet, or with *Dry run* builds and checks a tag without publishing anything
+(the files are kept as the artifact of the run).
 
 To debug the extension in a nested session:
 
