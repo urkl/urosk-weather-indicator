@@ -5,11 +5,14 @@
  * Development-only: opens the real preference pages in a standalone window and runs a
  * search, so scripts/screenshots.sh can capture the search results.
  *
- *   gjs -m scripts/prefs-demo.js <extension-dir> <locations|general|rivers> <query>
+ *   gjs -m scripts/prefs-demo.js <extension-dir> <locations|general|transfer|rivers> <query>
+ *
+ * `transfer` shows the end of the General page with the export and import of the settings.
  */
 import Adw from 'gi://Adw?version=1';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
+import Gtk from 'gi://Gtk?version=4.0';
 import System from 'system';
 
 const [extensionDir, page, query] = System.programArgs;
@@ -24,6 +27,20 @@ const source = Gio.SettingsSchemaSource.new_from_directory(`${extensionDir}/sche
 const settings = new Gio.Settings({
     settings_schema: source.lookup('org.gnome.shell.extensions.urosk-weather-indicator', false),
 });
+
+/** Scrolls the first scrolled window inside `widget` to its end. */
+function scrollToEnd(widget) {
+    for (let child = widget.get_first_child(); child; child = child.get_next_sibling()) {
+        if (child instanceof Gtk.ScrolledWindow) {
+            const adjustment = child.vadjustment;
+            adjustment.value = adjustment.upper - adjustment.page_size;
+            return true;
+        }
+        if (scrollToEnd(child))
+            return true;
+    }
+    return false;
+}
 
 const app = new Adw.Application({application_id: 'net.urosk.WeatherIndicatorDemo'});
 app.connect('activate', () => {
@@ -40,8 +57,14 @@ app.connect('activate', () => {
     window.present();
 
     GLib.timeout_add(GLib.PRIORITY_DEFAULT, 800, () => {
-        if (page === 'general') {
+        if (page === 'general' || page === 'transfer') {
             window.set_visible_page(general);
+            if (page === 'transfer') {
+                GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+                    scrollToEnd(general);
+                    return GLib.SOURCE_REMOVE;
+                });
+            }
         } else if (page === 'rivers') {
             window.set_visible_page(rivers);
             rivers.arsoSearch.search(query);

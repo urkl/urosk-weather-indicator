@@ -3,12 +3,14 @@
 
 /**
  * Current conditions at the top of the menu: large icon and temperature, the location,
- * a description and a grid of details (humidity, wind, pressure, UV, sunrise …).
+ * a description and a grid of details (humidity, wind, pressure, UV, sunrise …) with the
+ * Moon below the sun: phase, moonrise, moonset and the next full and new moon.
  */
 import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 
 import {_, fill} from '../lib/i18n.js';
+import {MoonPhase, phaseIcon, phaseName, riseSetText} from '../lib/moon.js';
 import {describeCode, iconFileName} from '../lib/weatherCodes.js';
 import {dimLabel, hbox, vbox} from './widgets.js';
 
@@ -44,27 +46,45 @@ export class CurrentView {
         const grid = vbox('uwi-details');
         for (const row of fields) {
             const rowBox = hbox('uwi-details-row');
-            for (const [key, icon, caption] of row) {
-                const cell = hbox('uwi-details-cell', {x_expand: true});
-                cell.add_child(icons.icon(icon, 28));
-                const values = vbox('', {y_align: Clutter.ActorAlign.CENTER});
-                this._details[key] = new St.Label({text: '–', style_class: 'uwi-details-value'});
-                values.add_child(this._details[key]);
-                values.add_child(dimLabel(caption, 'uwi-details-caption'));
-                cell.add_child(values);
-                rowBox.add_child(cell);
-            }
+            for (const [key, icon, caption] of row)
+                this._cell(rowBox, key, icon, caption);
             grid.add_child(rowBox);
         }
+
+        const moonRow = hbox('uwi-details-row');
+        const phase = this._cell(moonRow, 'moonPhase', phaseIcon(MoonPhase.FULL), '');
+        this._moonIcon = phase.icon;
+        this._moonCaption = phase.caption;
+        this._cell(moonRow, 'moonrise', 'moonrise.svg', _('moonrise'));
+        this._cell(moonRow, 'moonset', 'moonset.svg', _('moonset'));
+        grid.add_child(moonRow);
+        this._moonNext = dimLabel('', 'uwi-details-caption uwi-moon-next', {x_align: Clutter.ActorAlign.CENTER});
+        grid.add_child(this._moonNext);
         this.actor.add_child(grid);
+    }
+
+    /** Adds a detail cell (icon, value, caption) to `row` and returns its icon and caption. */
+    _cell(row, key, icon, caption) {
+        const cell = hbox('uwi-details-cell', {x_expand: true});
+        const iconActor = this._icons.icon(icon, 28);
+        cell.add_child(iconActor);
+        const values = vbox('', {y_align: Clutter.ActorAlign.CENTER});
+        this._details[key] = new St.Label({text: '–', style_class: 'uwi-details-value'});
+        values.add_child(this._details[key]);
+        const captionLabel = dimLabel(caption, 'uwi-details-caption');
+        values.add_child(captionLabel);
+        cell.add_child(values);
+        row.add_child(cell);
+        return {icon: iconActor, caption: captionLabel};
     }
 
     /**
      * @param {import('../lib/forecast.js').Forecast} forecast
      * @param {import('../lib/format.js').Formatter} fmt
      * @param {string} locationName
+     * @param {object} moon the Moon now, see `moonNow()`
      */
-    update(forecast, fmt, locationName) {
+    update(forecast, fmt, locationName, moon) {
         const current = forecast.current;
         const today = forecast.days[0];
         this._icon.gicon = this._icons.gicon(iconFileName(current.code, current.isDay));
@@ -87,6 +107,25 @@ export class CurrentView {
         details.uv.text = fmt.number(today?.uvIndex.median ?? null);
         details.sunrise.text = fmt.time(today?.sunrise ?? null);
         details.sunset.text = fmt.time(today?.sunset ?? null);
+        this._updateMoon(today?.moon ?? null, moon, fmt);
+    }
+
+    /**
+     * @param {object|null} day the Moon on the local day, see `moonDays()`
+     * @param {object} now the Moon now, see `moonNow()`
+     * @param {import('../lib/format.js').Formatter} fmt
+     */
+    _updateMoon(day, now, fmt) {
+        const details = this._details;
+        if (day) {
+            this._moonIcon.gicon = this._icons.gicon(phaseIcon(day.phase));
+            details.moonPhase.text = phaseName(day.phase);
+            const {rise, set} = riseSetText(day, fmt);
+            details.moonrise.text = rise;
+            details.moonset.text = set;
+        }
+        this._moonCaption.text = fill(_('%s lit · age %s d'), fmt.percent(now.illumination * 100), fmt.number(now.age, 1));
+        this._moonNext.text = fill(_('Next full moon %s · new moon %s'), fmt.dateTime(now.nextFull), fmt.dateTime(now.nextNew));
     }
 
     /** Shows a message instead of the conditions (e.g. while loading). */

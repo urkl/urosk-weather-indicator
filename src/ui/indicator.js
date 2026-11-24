@@ -17,6 +17,7 @@ import {Formatter, formattingLocale, unitsFromSettings} from '../lib/format.js';
 import {HttpClient} from '../lib/http.js';
 import {_, fill} from '../lib/i18n.js';
 import {ACTIVE_LOCATION_KEY, LOCATIONS_KEY, activeLocationIndex, locationKey, readLocations} from '../lib/locations.js';
+import {moonDays, moonNow} from '../lib/moon.js';
 import {ARSO_GAUGES_URL, parseArsoGauges} from '../lib/rivers/arso.js';
 import {GAUGES_KEY, GaugeSource, gaugeKey, readGauges} from '../lib/rivers/gauges.js';
 import {GLOFAS_REFRESH_SECONDS, buildFloodUrl, parseFlood} from '../lib/rivers/glofas.js';
@@ -118,6 +119,7 @@ class WeatherIndicator extends PanelMenu.Button {
             'changed::panel-days', render,
             'changed::panel-style', render,
             'changed::panel-show-current', render,
+            'changed::panel-show-moon', render,
             'changed::show-arso-text', () => this._refreshForecast(),
             'changed::refresh-interval', () => this._startTimers(),
             'changed::temperature-unit', reformat,
@@ -181,7 +183,13 @@ class WeatherIndicator extends PanelMenu.Button {
         this._render();
         try {
             const json = await this._http.getJson(buildForecastUrl(location), cancellable);
-            this._forecasts.set(key, {forecast: parseForecast(json), fetchedAt: nowSeconds()});
+            const forecast = parseForecast(json);
+            // The Moon is computed locally, once per forecast, for the same local days
+            const moon = moonDays(forecast.days, location);
+            forecast.days.forEach((day, i) => {
+                day.moon = moon[i];
+            });
+            this._forecasts.set(key, {forecast, fetchedAt: nowSeconds()});
             this._forecastError = null;
         } catch (error) {
             if (isCancelled(error, cancellable))
@@ -310,10 +318,11 @@ class WeatherIndicator extends PanelMenu.Button {
                 days: this._settings.get_int('panel-days'),
                 compact: this._settings.get_string('panel-style') === 'compact',
                 showCurrent: this._settings.get_boolean('panel-show-current'),
+                moonPhase: this._settings.get_boolean('panel-show-moon') ? entry.forecast.days[0]?.moon?.phase ?? null : null,
                 stale: Boolean(this._forecastError),
                 river,
             });
-            this._menuView.showForecast(entry.forecast, fmt, location.name);
+            this._menuView.showForecast(entry.forecast, fmt, location.name, moonNow(nowSeconds()));
             this._menuView.setStatus(this._statusText(entry));
         }
 

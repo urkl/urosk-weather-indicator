@@ -9,6 +9,7 @@ import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 
 import {_} from '../lib/i18n.js';
+import {phaseIcon} from '../lib/moon.js';
 import {iconFileName} from '../lib/weatherCodes.js';
 import {ALERT_CLASSES} from '../lib/rivers/gauges.js';
 import {hbox, label, vbox} from './widgets.js';
@@ -40,13 +41,16 @@ export class PanelView {
      * @param {number} state.days how many days to show
      * @param {boolean} state.compact
      * @param {boolean} state.showCurrent
+     * @param {string|null} state.moonPhase phase of today to show, or `null`
      * @param {boolean} state.stale true when the last refresh failed
      * @param {object|null} state.river summary of the first river gauge
      */
-    update({forecast, fmt, days, compact, showCurrent, stale, river}) {
+    update({forecast, fmt, days, compact, showCurrent, moonPhase = null, stale, river}) {
         this._box.destroy_all_children();
         if (river)
             this._box.add_child(this._river(river));
+        if (moonPhase)
+            this._box.add_child(this._icons.icon(phaseIcon(moonPhase), 20, 'uwi-icon uwi-panel-moon'));
 
         if (showCurrent) {
             const current = hbox('uwi-panel-current');

@@ -3,7 +3,7 @@
 #
 # make            build into build/ (compiled schemas and translations)
 # make install    install for the current user (log out and in to load it on Wayland)
-# make zip        package for extensions.gnome.org / GitHub releases
+# make zip        package for extensions.gnome.org / GitHub releases (with SHA256SUMS)
 # make check      lint, unit tests and translation check
 
 UUID     := urosk-weather-indicator@urosk.net
@@ -38,11 +38,14 @@ zip: build
 	mkdir -p $(DIST)
 	rm -f $(ZIP)
 	cd $(BUILD) && zip -qr ../../$(ZIP) . -x schemas/gschemas.compiled
-	@echo "Created $(ZIP)"
+	cd $(DIST) && sha256sum $(notdir $(ZIP)) > SHA256SUMS
+	@echo "Created $(ZIP) and $(DIST)/SHA256SUMS"
 
 test:
 	python3 scripts/i18n.py compile build/test-locale >/dev/null
-	UWI_TEST_LOCALE_DIR=build/test-locale gjs -m tests/run.js
+	mkdir -p build/test-schemas
+	glib-compile-schemas --strict --targetdir=build/test-schemas src/schemas
+	UWI_TEST_LOCALE_DIR=build/test-locale UWI_TEST_SCHEMA_DIR=build/test-schemas gjs -m tests/run.js
 
 lint:
 	npx eslint src tests scripts

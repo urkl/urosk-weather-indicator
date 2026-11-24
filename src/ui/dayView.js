@@ -9,6 +9,7 @@ import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 
 import {_, fill} from '../lib/i18n.js';
+import {phaseName} from '../lib/moon.js';
 import {describeCode, iconFileName} from '../lib/weatherCodes.js';
 import {drawHourlyChart} from '../lib/charts.js';
 import {ChartArea, dimLabel, hbox, vbox, wrap} from './widgets.js';
@@ -103,6 +104,16 @@ export class DayView {
             parts.push(fill(_('UV %s'), fmt.number(day.uvIndex.median)));
         if (day.sunrise && day.sunset)
             parts.push(fill(_('sun %s–%s'), fmt.time(day.sunrise), fmt.time(day.sunset)));
+        if (day.moon) {
+            const moon = day.moon;
+            parts.push(`${phaseName(moon.phase).toLocaleLowerCase()} ${fmt.percent(moon.illumination * 100)}`);
+            if (moon.alwaysUp)
+                parts.push(_('moon up all day'));
+            else if (moon.alwaysDown)
+                parts.push(_('moon down all day'));
+            else
+                parts.push(fill(_('moonrise %s, moonset %s'), fmt.time(moon.rise), fmt.time(moon.set)));
+        }
         return parts.join('  ·  ');
     }
 

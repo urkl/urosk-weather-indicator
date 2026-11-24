@@ -14,40 +14,47 @@ can see at a glance whether "rain on Thursday" is a safe bet or a coin toss.
 
 ![The menu: current conditions, seven days, the hourly chart of the selected day, the forecast of every model and river gauges — Komenda, Slovenia](docs/screenshots/menu.png)
 
-![The top bar: river gauge, current temperature and the next seven days](docs/screenshots/panel.png)
+![The top bar: river gauge, moon phase, current temperature and the next seven days](docs/screenshots/panel.png)
 
 ## Features
 
 - **Six weather models in one request** — ICON-D2, ICON-EU, ECMWF, GFS, Météo-France and UKMO via
-  [Open-Meteo](https://open-meteo.com). No API key, no account.
-- **Median and range** for every value; the hourly chart shows the model spread as a band.
+  [Open-Meteo](https://open-meteo.com). No API key, no account.  
+- **Median and range** for every value; the hourly chart shows the model spread as a band.  
 - **Disagreement warnings** when the models differ by 4 °C or more, or when some say "rain" and
-  others "dry".
-- **Top bar** with the current temperature and up to seven days (full or compact).
+  others "dry".  
+- **Top bar** with the current temperature and up to seven days (full or compact).  
 - **Menu** with current conditions (humidity, wind, gusts, pressure, UV, sunrise and sunset),
   a 7-day list with temperature bars, and for the selected day an hourly chart, an hourly strip
-  and the forecast of each model.
+  and the forecast of each model.  
+- **Moon** — phase with icon, illuminated fraction, age, moonrise and moonset for the selected
+  location, and the date and time of the next full and new moon; a small phase icon for every day
+  of the 7-day list and, if you want it, in the top bar. Computed on your computer from the
+  coordinates (Meeus' lunar theory, phases within a minute) — no extra requests.  
 - **Several locations**, found with a place search (or entered as coordinates); switch between
-  them at the top of the menu. Times are shown in each location's own time zone.
-- **Rivers** (optional):
+  them at the top of the menu. Times are shown in each location's own time zone.  
+- **Rivers** (optional):  
   - **anywhere in the world** — modelled daily river discharge with a 10-day ensemble forecast
-    from GloFAS (Copernicus), via the Open-Meteo Flood API;
+    from GloFAS (Copernicus), via the Open-Meteo Flood API;  
   - **live gauges in Slovenia** — measured water level, discharge and water temperature from
     ARSO, refreshed every 30 minutes, with the official high-water thresholds, a trend arrow and
-    a 48-hour chart.
-  - Yellow / orange / red alert levels, with your own thresholds if you want them.
+    a 48-hour chart.  
+  - Yellow / orange / red alert levels, with your own thresholds if you want them.  
 - **Units**: °C or °F, km/h, m/s, mph or knots, mm or inches, hPa, inHg or mmHg; the 12/24-hour
-  clock follows your GNOME setting.
-- Optional national **text forecast for Slovenia** (ARSO, in Slovenian).
+  clock follows your GNOME setting.  
+- Optional national **text forecast for Slovenia** (ARSO, in Slovenian).  
 - **English and Slovenian** — follows the desktop language, or choose the language in the
-  settings (it also sets the format of dates and numbers).
+  settings (it also sets the names of days and months and the number format). Dates are always
+  written as dd.mm.yyyy.  
+- **Easy install and update** with one command, and **settings transfer** to another computer
+  (export and import as a file).  
 - Works with the dark and the light shell style.
 
 ## Screenshots
 
 | Another day selected | Another location |
 | --- | --- |
-| ![Friday selected: hourly chart and the forecast of each model](docs/screenshots/menu-day.png) | ![Ljubljana selected, with a warning that the models disagree](docs/screenshots/menu-location.png) |
+| ![Another day selected: hourly chart and the forecast of each model](docs/screenshots/menu-day.png) | ![Ljubljana selected](docs/screenshots/menu-location.png) |
 
 | Locations | Place search |
 | --- | --- |
@@ -57,12 +64,29 @@ can see at a glance whether "rain on Thursday" is a safe bet or a coin toss.
 | --- | --- |
 | ![Language, top bar and units](docs/screenshots/preferences-general.png) | ![River gauges and the ARSO station search](docs/screenshots/preferences-rivers.png) |
 
+| Settings transfer | |
+| --- | --- |
+| ![Export and import of the settings](docs/screenshots/preferences-transfer.png) | |
+
 The screenshots are generated from live data by `scripts/screenshots.sh` (see
 [Development](#development)).
 
 ## Installation
 
 Requires **GNOME Shell 48, 49 or 50**.
+
+### With one command (install or update)
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/urkl/urosk-weather-indicator/main/scripts/install-latest.sh | bash
+```
+
+The [script](scripts/install-latest.sh) downloads the latest release, checks its SHA256
+checksum and the supported GNOME Shell versions, installs it for your user with
+`gnome-extensions install --force` (no sudo) and enables it on the first install. Run the same
+command to update. Then log out and back in: on Wayland GNOME Shell loads extensions only at
+login. Options: `… | bash -s -- --version 1.1.0` for a particular release, `--file path.zip`
+for a downloaded package.
 
 ### From a release
 
@@ -90,17 +114,32 @@ make install
 `make install` needs `glib-compile-schemas` (package `libglib2.0-bin` on Debian/Ubuntu,
 `glib2` on Fedora) and Python 3. Log out and in, then enable it as above.
 
+### Updating keeps your settings
+
+Settings are stored in dconf under `/org/gnome/shell/extensions/urosk-weather-indicator/`, not
+in the extension folder, so an update — with the script, `gnome-extensions install --force` or
+`make install` — keeps your locations, units and rivers; new settings start with their defaults.
+Only *removing* the extension in the Extensions app may reset them.
+
 ## Usage
 
-1. Open **Settings** from the menu (or `gnome-extensions prefs urosk-weather-indicator@urosk.net`).
+1. Open **Settings** from the menu (or `gnome-extensions prefs urosk-weather-indicator@urosk.net`).  
 2. On the **Locations** page, search for a place and click it to add it. You can also type
    coordinates, e.g. `46.2048, 14.5384`. The selected location is shown in the top bar; with more
-   than one location, switch at the top of the menu.
-3. Click a day in the menu to see its hourly chart and what each model expects.
+   than one location, switch at the top of the menu.  
+3. Click a day in the menu to see its hourly chart and what each model expects.  
 4. On the **General** page you can choose the language (English or Slovenian), units and what
-   the top bar shows.
+   the top bar shows.  
 5. Optionally, on the **Rivers** page, add a live ARSO gauge (search by river or place) or any
-   river point worldwide (search for a place on the river), and set your own alert thresholds.
+   river point worldwide (search for a place on the river), and set your own alert thresholds.  
+6. To use the same settings on another computer, click **Export…** under *Transfer settings* on
+   the **General** page, then **Import…** the file on the other computer (it replaces the
+   settings there). The same from a terminal:
+
+   ```sh
+   dconf dump /org/gnome/shell/extensions/urosk-weather-indicator/ > uwi-settings.ini
+   dconf load /org/gnome/shell/extensions/urosk-weather-indicator/ < uwi-settings.ini
+   ```
 
 ## How the forecast is combined
 
@@ -109,7 +148,7 @@ location and shows the **median**; the **minimum and maximum** are the band in t
 and appear in the warnings. Weather symbols are combined by severity (the median severity wins).
 A day is marked uncertain (⚠, orange) when:
 
-- the high or low temperature differs by **4 °C or more** between models, or
+- the high or low temperature differs by **4 °C or more** between models, or  
 - precipitation differs a lot — some models are dry (< 0.5 mm) while others expect 3 mm or more,
   or the spread is at least 4 mm and half the median.
 
@@ -142,18 +181,21 @@ no tracking:
 | `flood-api.open-meteo.com` | coordinates of your GloFAS river points | at most every 6 hours |
 | `www.arso.gov.si`, `meteo.arso.gov.si` | nothing (a fixed file is downloaded) | every 10 minutes if ARSO gauges are saved; hourly for the text forecast |
 
-Settings are stored in GSettings (dconf); the ARSO reading history in your cache directory.
+The moon phase, moonrise and moonset are computed locally; nothing is sent for them. Settings are
+stored in GSettings (dconf); the ARSO reading history in your cache directory. An exported
+settings file contains your locations (coordinates), so share it only where you would share
+those.
 
 ## Data sources and attribution
 
 - Weather forecast and geocoding: [Open-Meteo.com](https://open-meteo.com/), licensed under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); geocoding is based on
-  [GeoNames](https://www.geonames.org/).
+  [GeoNames](https://www.geonames.org/).  
 - River discharge: [Open-Meteo Flood API](https://open-meteo.com/en/docs/flood-api); contains
   modified Copernicus Emergency Management Service information
-  ([GloFAS](https://global-flood.emergency.copernicus.eu/)).
+  ([GloFAS](https://global-flood.emergency.copernicus.eu/)).  
 - River gauges and text forecast for Slovenia: [ARSO](https://www.arso.gov.si/), the Slovenian
-  Environment Agency.
+  Environment Agency.  
 - Weather icons: [Meteocons](https://github.com/basmilius/weather-icons) by Bas Milius, MIT licence
   (`src/icons/LICENSE-meteocons`).
 
@@ -196,13 +238,17 @@ scripts/              i18n tooling, screenshot automation
 | `npm ci && make lint` | ESLint |
 | `make i18n-check` | every string translated, template up to date |
 | `make install` | build and install for the current user |
-| `make zip` | package `dist/urosk-weather-indicator@urosk.net.shell-extension.zip` |
+| `make zip` | package `dist/urosk-weather-indicator@urosk.net.shell-extension.zip` and `dist/SHA256SUMS` |
 | `make screenshots` | regenerate `docs/screenshots/` (English) and `docs/screenshots/sl/` (Slovenian) |
 
 `scripts/screenshots.sh` starts a **headless GNOME Shell** with its own D-Bus session and
 temporary config directories (your desktop is not touched), installs the extension together with
 a small helper extension, waits for live data, opens the menu and the preferences and saves the
 screenshots. It doubles as an end-to-end check: it fails if the extension does not load data.
+
+A release is tagged `vX.Y.Z` and has both files from `make zip` as assets
+(`urosk-weather-indicator@urosk.net.shell-extension.zip` and `SHA256SUMS`);
+`scripts/install-latest.sh` downloads them by these names.
 
 To debug the extension in a nested session:
 

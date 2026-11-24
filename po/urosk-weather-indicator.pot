@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: urosk-weather-indicator\n"
-"POT-Creation-Date: 2026-11-18 12:46+0000\n"
+"POT-Creation-Date: 2026-11-24 07:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/lib/arsoText.js:16 src/ui/dayView.js:52 src/ui/weekView.js:46
+#: src/lib/arsoText.js:16 src/ui/dayView.js:53 src/ui/weekView.js:48
 msgid "Today"
 msgstr ""
 
@@ -78,21 +78,61 @@ msgstr ""
 msgid "NW"
 msgstr ""
 
-#: src/lib/format.js:284
+#: src/lib/format.js:296
 msgid "just now"
 msgstr ""
 
-#: src/lib/format.js:287
+#: src/lib/format.js:299
 msgid "%d min ago"
 msgid_plural "%d min ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/lib/format.js:290
+#: src/lib/format.js:302
 msgid "%d h ago"
 msgid_plural "%d h ago"
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/lib/moon.js:31
+msgid "New moon"
+msgstr ""
+
+#: src/lib/moon.js:32
+msgid "Waxing crescent"
+msgstr ""
+
+#: src/lib/moon.js:33
+msgid "First quarter"
+msgstr ""
+
+#: src/lib/moon.js:34
+msgid "Waxing gibbous"
+msgstr ""
+
+#: src/lib/moon.js:35
+msgid "Full moon"
+msgstr ""
+
+#: src/lib/moon.js:36
+msgid "Waning gibbous"
+msgstr ""
+
+#: src/lib/moon.js:37
+msgid "Last quarter"
+msgstr ""
+
+#: src/lib/moon.js:38
+msgid "Waning crescent"
+msgstr ""
+
+#: src/lib/moon.js:475
+msgid "up all day"
+msgstr ""
+
+#: src/lib/moon.js:477
+msgid "down all day"
+msgstr ""
 
 #: src/lib/rivers/arso.js:23
 msgid "low flow"
@@ -128,6 +168,14 @@ msgstr ""
 
 #: src/lib/rivers/gauges.js:16
 msgid "Red alert"
+msgstr ""
+
+#: src/lib/settingsTransfer.js:82
+msgid "This is not a settings file of Urosk Weather Indicator."
+msgstr ""
+
+#: src/lib/settingsTransfer.js:84
+msgid "The settings file is from a newer version; update the extension first."
 msgstr ""
 
 #: src/lib/weatherCodes.js:15
@@ -246,157 +294,235 @@ msgstr ""
 msgid "No data"
 msgstr ""
 
-#: src/prefs/generalPage.js:16
+#: src/prefs/generalPage.js:19
 msgid "Weather forecast and geocoding · CC BY 4.0"
 msgstr ""
 
-#: src/prefs/generalPage.js:17
+#: src/prefs/generalPage.js:20
 msgid "Modelled river discharge via the Open-Meteo Flood API"
 msgstr ""
 
-#: src/prefs/generalPage.js:18
+#: src/prefs/generalPage.js:21
 msgid "Live river gauges and text forecast for Slovenia"
 msgstr ""
 
-#: src/prefs/generalPage.js:19
+#: src/prefs/generalPage.js:22
 msgid "Weather icons by Bas Milius · MIT"
 msgstr ""
 
-#: src/prefs/generalPage.js:29
+#: src/prefs/generalPage.js:34
 msgid "General"
 msgstr ""
 
-#: src/prefs/generalPage.js:31
+#: src/prefs/generalPage.js:38
 msgid "Language"
 msgstr ""
 
-#: src/prefs/generalPage.js:32
+#: src/prefs/generalPage.js:39
 msgid "Language of the extension"
 msgstr ""
 
-#: src/prefs/generalPage.js:33
+#: src/prefs/generalPage.js:40
 msgid "Automatic (desktop language)"
 msgstr ""
 
-#: src/prefs/generalPage.js:35
-msgid "A chosen language also sets the format of dates and numbers."
-msgstr ""
-
-#: src/prefs/generalPage.js:38
-msgid "Top bar"
-msgstr ""
-
-#: src/prefs/generalPage.js:39
-msgid "Days"
-msgstr ""
-
-#: src/prefs/generalPage.js:39
-msgid "0 shows only the current conditions"
-msgstr ""
-
-#: src/prefs/generalPage.js:40
-msgid "Day style"
-msgstr ""
-
-#: src/prefs/generalPage.js:41
-msgid "Weekday, icon, high and low"
-msgstr ""
-
 #: src/prefs/generalPage.js:42
-msgid "Compact: icon and high"
-msgstr ""
-
-#: src/prefs/generalPage.js:44
-msgid "Current temperature"
+msgid "A chosen language also sets the names of days and months and the format of numbers; dates are always dd.mm.yyyy."
 msgstr ""
 
 #: src/prefs/generalPage.js:45
-msgid "Position"
+msgid "Top bar"
 msgstr ""
 
 #: src/prefs/generalPage.js:46
-msgid "Left"
+msgid "Days"
+msgstr ""
+
+#: src/prefs/generalPage.js:46
+msgid "0 shows only the current conditions"
 msgstr ""
 
 #: src/prefs/generalPage.js:47
-msgid "Center"
+msgid "Day style"
 msgstr ""
 
 #: src/prefs/generalPage.js:48
-msgid "Right"
+msgid "Weekday, icon, high and low"
+msgstr ""
+
+#: src/prefs/generalPage.js:49
+msgid "Compact: icon and high"
+msgstr ""
+
+#: src/prefs/generalPage.js:51
+msgid "Current temperature"
 msgstr ""
 
 #: src/prefs/generalPage.js:52
-msgid "Units"
+msgid "Moon phase"
+msgstr ""
+
+#: src/prefs/generalPage.js:52
+msgid "Icon of today’s moon phase"
 msgstr ""
 
 #: src/prefs/generalPage.js:53
-msgid "Temperature"
+msgid "Position"
 msgstr ""
 
 #: src/prefs/generalPage.js:54
-msgid "Celsius (°C)"
+msgid "Left"
 msgstr ""
 
 #: src/prefs/generalPage.js:55
-msgid "Fahrenheit (°F)"
+msgid "Center"
 msgstr ""
 
-#: src/prefs/generalPage.js:57
-msgid "Wind speed"
+#: src/prefs/generalPage.js:56
+msgid "Right"
+msgstr ""
+
+#: src/prefs/generalPage.js:60
+msgid "Units"
 msgstr ""
 
 #: src/prefs/generalPage.js:61
-msgid "knots"
+msgid "Temperature"
+msgstr ""
+
+#: src/prefs/generalPage.js:62
+msgid "Celsius (°C)"
 msgstr ""
 
 #: src/prefs/generalPage.js:63
-msgid "Precipitation"
-msgstr ""
-
-#: src/prefs/generalPage.js:64
-msgid "millimetres"
+msgid "Fahrenheit (°F)"
 msgstr ""
 
 #: src/prefs/generalPage.js:65
+msgid "Wind speed"
+msgstr ""
+
+#: src/prefs/generalPage.js:69
+msgid "knots"
+msgstr ""
+
+#: src/prefs/generalPage.js:71
+msgid "Precipitation"
+msgstr ""
+
+#: src/prefs/generalPage.js:72
+msgid "millimetres"
+msgstr ""
+
+#: src/prefs/generalPage.js:73
 msgid "inches"
 msgstr ""
 
-#: src/prefs/generalPage.js:67
+#: src/prefs/generalPage.js:75
 msgid "Pressure"
 msgstr ""
 
-#: src/prefs/generalPage.js:75
+#: src/prefs/generalPage.js:83
 msgid "Forecast"
 msgstr ""
 
-#: src/prefs/generalPage.js:76
+#: src/prefs/generalPage.js:84
 msgid "Six models from Open-Meteo in one request, no API key needed."
 msgstr ""
 
-#: src/prefs/generalPage.js:78
+#: src/prefs/generalPage.js:86
 msgid "Refresh interval"
 msgstr ""
 
-#: src/prefs/generalPage.js:78
+#: src/prefs/generalPage.js:86
 msgid "minutes"
 msgstr ""
 
-#: src/prefs/generalPage.js:79
+#: src/prefs/generalPage.js:87
 msgid "ARSO text forecast"
 msgstr ""
 
-#: src/prefs/generalPage.js:80
+#: src/prefs/generalPage.js:88
 msgid "National forecast for Slovenia by the Slovenian Environment Agency (in Slovenian)"
 msgstr ""
 
-#: src/prefs/generalPage.js:83
+#: src/prefs/generalPage.js:92
+msgid "Transfer settings"
+msgstr ""
+
+#: src/prefs/generalPage.js:93
+msgid "Copy the locations, units, rivers and all other settings to another computer: export them here, import the file there."
+msgstr ""
+
+#: src/prefs/generalPage.js:95
+msgid "Export to a file"
+msgstr ""
+
+#: src/prefs/generalPage.js:96
+msgid "Export…"
+msgstr ""
+
+#: src/prefs/generalPage.js:98
+msgid "Import from a file"
+msgstr ""
+
+#: src/prefs/generalPage.js:98
+msgid "Replaces the current settings"
+msgstr ""
+
+#: src/prefs/generalPage.js:99
+msgid "Import…"
+msgstr ""
+
+#: src/prefs/generalPage.js:103
 msgid "Data sources"
 msgstr ""
 
-#: src/prefs/generalPage.js:86
+#: src/prefs/generalPage.js:106
 msgid "Website"
 msgstr ""
+
+#: src/prefs/generalPage.js:119
+msgid "Settings (JSON)"
+msgstr ""
+
+#: src/prefs/generalPage.js:130 src/ui/indicator.js:312
+msgid "Error: %s"
+msgstr ""
+
+#: src/prefs/generalPage.js:134
+msgid "Export settings"
+msgstr ""
+
+#: src/prefs/generalPage.js:142
+msgid "Settings exported to %s"
+msgstr ""
+
+#: src/prefs/generalPage.js:150
+msgid "Import settings"
+msgstr ""
+
+#: src/prefs/generalPage.js:165
+msgid "Replace the settings?"
+msgstr ""
+
+#: src/prefs/generalPage.js:166
+msgid "Locations, units, rivers and the other settings from the file replace the current ones."
+msgstr ""
+
+#: src/prefs/generalPage.js:168
+msgid "Cancel"
+msgstr ""
+
+#: src/prefs/generalPage.js:169
+msgid "Import"
+msgstr ""
+
+#: src/prefs/generalPage.js:179
+msgid "%d setting imported"
+msgid_plural "%d settings imported"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/prefs/locationsPage.js:36
 msgid "Coordinates"
@@ -570,135 +696,159 @@ msgstr ""
 msgid "Try another spelling or enter coordinates as “latitude, longitude”."
 msgstr ""
 
-#: src/ui/currentView.js:38
+#: src/ui/currentView.js:40
 msgid "humidity"
 msgstr ""
 
-#: src/ui/currentView.js:38
+#: src/ui/currentView.js:40
 msgid "wind"
 msgstr ""
 
-#: src/ui/currentView.js:39
+#: src/ui/currentView.js:41
 msgid "gusts"
 msgstr ""
 
-#: src/ui/currentView.js:39
+#: src/ui/currentView.js:41
 msgid "pressure"
 msgstr ""
 
-#: src/ui/currentView.js:40 src/ui/dayView.js:113
+#: src/ui/currentView.js:42 src/ui/dayView.js:124
 msgid "precipitation"
 msgstr ""
 
-#: src/ui/currentView.js:40
+#: src/ui/currentView.js:42
 msgid "UV today"
 msgstr ""
 
-#: src/ui/currentView.js:41
+#: src/ui/currentView.js:43
 msgid "sunrise"
 msgstr ""
 
-#: src/ui/currentView.js:41
+#: src/ui/currentView.js:43
 msgid "sunset"
 msgstr ""
 
-#: src/ui/currentView.js:74
+#: src/ui/currentView.js:58
+msgid "moonrise"
+msgstr ""
+
+#: src/ui/currentView.js:59
+msgid "moonset"
+msgstr ""
+
+#: src/ui/currentView.js:94
 msgid "feels like %s"
 msgstr ""
 
-#: src/ui/dayView.js:57
+#: src/ui/currentView.js:127
+msgid "%s lit · age %s d"
+msgstr ""
+
+#: src/ui/currentView.js:128
+msgid "Next full moon %s · new moon %s"
+msgstr ""
+
+#: src/ui/dayView.js:58
 msgid "— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)"
 msgstr ""
 
-#: src/ui/dayView.js:77
+#: src/ui/dayView.js:78
 msgid "precipitation %s–%s"
 msgstr ""
 
-#: src/ui/dayView.js:79
+#: src/ui/dayView.js:80
 msgid "temperature %s…%s / %s…%s"
 msgstr ""
 
-#: src/ui/dayView.js:84
+#: src/ui/dayView.js:85
 msgid "Models disagree: %s — the forecast is uncertain."
 msgstr ""
 
-#: src/ui/dayView.js:98
+#: src/ui/dayView.js:99
 msgid "precipitation %s"
 msgstr ""
 
-#: src/ui/dayView.js:99
+#: src/ui/dayView.js:100
 msgid "precipitation %s (%s)"
 msgstr ""
 
-#: src/ui/dayView.js:101
+#: src/ui/dayView.js:102
 msgid "wind up to %s, gusts %s"
 msgstr ""
 
-#: src/ui/dayView.js:103
+#: src/ui/dayView.js:104
 msgid "UV %s"
 msgstr ""
 
-#: src/ui/dayView.js:105
+#: src/ui/dayView.js:106
 msgid "sun %s–%s"
 msgstr ""
 
-#: src/ui/dayView.js:112
-msgid "model"
+#: src/ui/dayView.js:111
+msgid "moon up all day"
 msgstr ""
 
 #: src/ui/dayView.js:113
+msgid "moon down all day"
+msgstr ""
+
+#: src/ui/dayView.js:115
+msgid "moonrise %s, moonset %s"
+msgstr ""
+
+#: src/ui/dayView.js:123
+msgid "model"
+msgstr ""
+
+#: src/ui/dayView.js:124
 msgid "high / low"
 msgstr ""
 
-#: src/ui/dayView.js:130
+#: src/ui/dayView.js:141
 msgid "The other models do not reach this day (shorter range)."
 msgstr ""
 
-#: src/ui/indicator.js:48
+#: src/ui/indicator.js:49
 msgid "Weather"
 msgstr ""
 
-#: src/ui/indicator.js:296
+#: src/ui/indicator.js:304
 msgid "Set a location"
 msgstr ""
 
-#: src/ui/indicator.js:297
+#: src/ui/indicator.js:305
 msgid "No location"
 msgstr ""
 
-#: src/ui/indicator.js:297
+#: src/ui/indicator.js:305
 msgid "Add a location in the settings."
 msgstr ""
 
-#: src/ui/indicator.js:298
+#: src/ui/indicator.js:306
 msgid "Open Settings and search for a place."
 msgstr ""
 
-#: src/ui/indicator.js:302
+#: src/ui/indicator.js:310
 msgid "Forecast not available: %s"
 msgstr ""
 
-#: src/ui/indicator.js:303
+#: src/ui/indicator.js:311
 msgid "Loading the forecast…"
 msgstr ""
 
-#: src/ui/indicator.js:304
-msgid "Error: %s"
-msgstr ""
-
-#: src/ui/indicator.js:304
+#: src/ui/indicator.js:312
 msgid "Loading…"
 msgstr ""
 
-#: src/ui/indicator.js:330
+#: src/ui/indicator.js:339
 msgid "Update failed: %s · last forecast %s"
 msgstr ""
 
-#: src/ui/indicator.js:331
+#: src/ui/indicator.js:340
 msgid "Updated %s · %s"
 msgstr ""
 
-#: src/ui/indicator.js:332
+#: src/ui/indicator.js:341
 msgid "Weather data by Open-Meteo.com (CC BY 4.0)"
 msgstr ""
 
@@ -710,15 +860,15 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/ui/menuView.js:107
+#: src/ui/menuView.js:108
 msgid "%d DAYS  ·  median of models"
 msgstr ""
 
-#: src/ui/menuView.js:150
+#: src/ui/menuView.js:151
 msgid "ARSO FORECAST  ·  %s"
 msgstr ""
 
-#: src/ui/panelView.js:63
+#: src/ui/panelView.js:67
 msgid "today"
 msgstr ""
 

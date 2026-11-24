@@ -98,12 +98,13 @@ export class MenuView {
      * @param {import('../lib/forecast.js').Forecast} forecast
      * @param {import('../lib/format.js').Formatter} fmt
      * @param {string} locationName
+     * @param {object} moon the Moon now, see `moonNow()`
      */
-    showForecast(forecast, fmt, locationName) {
+    showForecast(forecast, fmt, locationName, moon) {
         this._forecast = forecast;
         this._fmt = fmt;
         this._setForecastVisible(true);
-        this.current.update(forecast, fmt, locationName);
+        this.current.update(forecast, fmt, locationName, moon);
         this._weekHeading.text = fill(_('%d DAYS  ·  median of models'), forecast.days.length);
         this.week.update(forecast, fmt);
         this.selectDay(Math.min(this._selectedDay, forecast.days.length - 1));

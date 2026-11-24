@@ -1,10 +1,10 @@
 {
   "uuid": "urosk-weather-indicator@urosk.net",
   "name": "Urosk Weather Indicator",
-  "description": "Multi-model weather forecast in the top bar. Shows the median of six Open-Meteo models (ICON-D2, ICON-EU, ECMWF, GFS, Météo-France, UKMO) with their range and warns when the models disagree. The menu has current conditions, a 7-day list, hourly charts and the forecast of each model. Several searchable locations, metric or imperial units, and optional river gauges: modelled discharge anywhere in the world (GloFAS) or live gauges in Slovenia (ARSO).",
+  "description": "Multi-model weather forecast in the top bar. Shows the median of six Open-Meteo models (ICON-D2, ICON-EU, ECMWF, GFS, Météo-France, UKMO) with their range and warns when the models disagree. The menu has current conditions, a 7-day list, hourly charts and the forecast of each model. Moon phase, moonrise and moonset computed locally. Several searchable locations, metric or imperial units, and optional river gauges: modelled discharge anywhere in the world (GloFAS) or live gauges in Slovenia (ARSO).",
   "shell-version": ["48", "49", "50"],
   "url": "https://github.com/urkl/urosk-weather-indicator",
   "settings-schema": "org.gnome.shell.extensions.urosk-weather-indicator",
   "gettext-domain": "urosk-weather-indicator",
-  "version-name": "1.0.0"
+  "version-name": "1.1.0"
 }

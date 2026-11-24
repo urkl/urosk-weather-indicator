@@ -124,6 +124,7 @@ export default class ScreenshotHelper extends Extension {
         await this._demoShot('preferences-search.png', 'locations', 'Piran');
         await this._demoShot('preferences-rivers.png', 'rivers', 'sava');
         await this._demoShot('preferences-general.png', 'general', '');
+        await this._demoShot('preferences-transfer.png', 'transfer', '');
     }
 
     async _demoShot(name, page, query) {

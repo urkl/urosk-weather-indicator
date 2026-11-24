@@ -27,7 +27,7 @@ export default class UroskWeatherIndicatorPreferences extends ExtensionPreferenc
             setLanguage(settings.get_string('language'), localeDir);
             pages = [
                 new LocationsPage(settings, http),
-                new GeneralPage(settings, availableLanguages(localeDir)),
+                new GeneralPage(settings, availableLanguages(localeDir), {extensionVersion: this.metadata['version-name'] ?? null}),
                 new RiversPage(settings, http),
             ];
             pages.forEach(page => window.add(page));

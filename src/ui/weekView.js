@@ -2,15 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * The 7-day list: one clickable row per day with weekday, icon, precipitation, low, a
- * temperature bar on the scale of the week and the high. Values where the models disagree
- * are highlighted.
+ * The 7-day list: one clickable row per day with weekday and moon phase, icon,
+ * precipitation, low, a temperature bar on the scale of the week and the high. Values where
+ * the models disagree are highlighted.
  */
 import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 
 import {_} from '../lib/i18n.js';
 import {capitalize} from '../lib/format.js';
+import {phaseIcon} from '../lib/moon.js';
 import {describeCode, iconFileName} from '../lib/weatherCodes.js';
 import {drawTemperatureBar} from '../lib/charts.js';
 import {ChartArea, dimLabel, hbox, label, vbox} from './widgets.js';
@@ -42,10 +43,15 @@ export class WeekView {
             const row = hbox('uwi-day-row', {x_expand: true});
 
             const names = vbox('uwi-day-name');
-            names.add_child(new St.Label({
+            const title = hbox('uwi-day-title');
+            title.add_child(new St.Label({
                 text: i === 0 ? _('Today') : capitalize(fmt.weekday(day.time, {long: true})),
                 style_class: 'uwi-day-weekday',
+                x_expand: true,
             }));
+            if (day.moon)
+                title.add_child(this._icons.icon(phaseIcon(day.moon.phase), 18, 'uwi-icon uwi-day-moon'));
+            names.add_child(title);
             names.add_child(dimLabel(`${fmt.shortDate(day.time)}  ${describeCode(day.code)}`, 'uwi-small'));
             row.add_child(names);
             row.add_child(this._icons.icon(iconFileName(day.code, true), 40));

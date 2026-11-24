@@ -261,14 +261,26 @@ export class Formatter {
         return format.format(new Date(unixSeconds * 1000));
     }
 
+    /**
+     * Dates use one pattern in every language, `dd.MM.yyyy` (e.g. `24.11.2026`), in the time
+     * zone of the location; only weekday and month names follow the locale.
+     */
     date(unixSeconds) {
-        return this._formatDate(unixSeconds, {day: 'numeric', month: 'numeric', year: 'numeric'});
+        if (!isValue(unixSeconds))
+            return MISSING;
+        const [year, month, day] = this.dayKey(unixSeconds).split('-');
+        return `${day}.${month}.${year}`;
     }
 
+    /** Day and month, `dd.MM.` (e.g. `24.11.`). */
     shortDate(unixSeconds) {
-        return this._formatDate(unixSeconds, {day: 'numeric', month: 'numeric'});
+        if (!isValue(unixSeconds))
+            return MISSING;
+        const [, month, day] = this.dayKey(unixSeconds).split('-');
+        return `${day}.${month}.`;
     }
 
+    /** Date and time, `dd.MM.yyyy HH:mm` (or the 12-hour clock when GNOME uses it). */
     dateTime(unixSeconds) {
         return isValue(unixSeconds) ? `${this.date(unixSeconds)} ${this.time(unixSeconds)}` : MISSING;
     }

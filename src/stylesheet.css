@@ -52,6 +52,7 @@
 .uwi-details-cell { spacing: 4px; }
 .uwi-details-value { font-weight: bold; font-size: 0.92em; }
 .uwi-details-caption { font-size: 0.75em; }
+.uwi-moon-next { padding-top: 2px; }
 
 /* ---------- week ---------- */
 .uwi-week { spacing: 2px; }
@@ -61,6 +62,8 @@
 .uwi-day:checked { background-color: rgba(255, 190, 111, 0.18); }
 .uwi-day-row { spacing: 8px; }
 .uwi-day-name { width: 130px; }
+.uwi-day-title { spacing: 4px; }
+.uwi-day-moon { margin-right: 2px; }
 .uwi-day-weekday { font-weight: bold; }
 .uwi-day-precipitation { width: 70px; }
 .uwi-day-amount { color: #62a0ea; font-size: 0.9em; font-weight: bold; }

@@ -51,6 +51,7 @@ session() {
         {'name': <'Komenda'>, 'description': <'Komenda, $COUNTRY'>, 'latitude': <46.20484>, 'longitude': <14.53839>},
         {'name': <'Ljubljana'>, 'description': <'$COUNTRY'>, 'latitude': <46.05108>, 'longitude': <14.50513>},
         {'name': <'Kranjska Gora'>, 'description': <'$COUNTRY'>, 'latitude': <46.48455>, 'longitude': <13.78557>}]"
+    $ext set $schema panel-show-moon true
     $ext set $schema rivers-enabled true
     $ext set $schema river-gauges "[
         {'source': <'arso'>, 'id': <'4570'>, 'name': <'Pšata – Topole'>, 'latitude': <46.17373>, 'longitude': <14.56263>,

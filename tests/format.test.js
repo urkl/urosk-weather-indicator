@@ -49,6 +49,20 @@ test('times are shown in the time zone of the location', () => {
     assert.equal(new Formatter({timeZone: 'America/Los_Angeles'}).dayKey(MORNING), '2026-11-17');
 });
 
+test('dates are dd.MM.yyyy in every language, in the time zone of the location', () => {
+    const fullMoon = Date.UTC(2026, 10, 24, 14, 53) / 1000;
+    for (const locale of ['sl', 'en', 'en-US', 'de']) {
+        const fmt = new Formatter({locale, timeZone: 'Europe/Ljubljana'});
+        assert.equal(fmt.date(fullMoon), '24.11.2026', locale);
+        assert.equal(fmt.shortDate(fullMoon), '24.11.', locale);
+        assert.equal(fmt.dateTime(fullMoon), '24.11.2026 15:53', locale);
+    }
+    const newYear = Date.UTC(2026, 11, 31, 23, 30) / 1000;
+    assert.equal(new Formatter({timeZone: 'Europe/Ljubljana'}).date(newYear), '01.01.2027');
+    assert.equal(new Formatter({timeZone: 'America/New_York'}).date(newYear), '31.12.2026');
+    assert.equal(new Formatter().date(null), '–');
+});
+
 test('12-hour clock follows the GNOME setting', () => {
     const fmt = new Formatter({locale: 'en-US', timeZone: 'Europe/Ljubljana', clockFormat: '12h'});
     assert.ok(/^07:05\sAM$/.test(fmt.time(MORNING)), fmt.time(MORNING));
