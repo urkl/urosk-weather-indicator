@@ -84,11 +84,13 @@ test('invalid values and unknown keys are skipped, the rest is applied', withSch
             'locations': 'Komenda',
             'refresh-interval': 45,
             'pressure-unit': 'mmhg',
+            'language': '../../../../tmp/evil',
             'a-key-from-a-newer-version': true,
         },
     });
     assert.deepEqual(result.applied.sort(), ['pressure-unit', 'refresh-interval']);
-    assert.deepEqual(result.skipped.sort(), ['a-key-from-a-newer-version', 'locations', 'panel-days', 'temperature-unit']);
+    assert.deepEqual(result.skipped.sort(), ['a-key-from-a-newer-version', 'language', 'locations', 'panel-days', 'temperature-unit']);
+    assert.equal(work.get_string('language'), '', 'a path is never imported as a language');
     assert.equal(work.get_int('panel-days'), 7, 'default kept');
     assert.equal(work.get_int('refresh-interval'), 45);
     assert.equal(work.get_string('pressure-unit'), 'mmhg');

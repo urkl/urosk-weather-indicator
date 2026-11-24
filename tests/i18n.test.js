@@ -5,7 +5,7 @@ import GLib from 'gi://GLib';
 
 import {assert, test} from './harness.js';
 import {
-    _, availableLanguages, chosenLanguageCode, fill, nativeLanguageName, ngettext, pluralIndexFor, setLanguage,
+    _, availableLanguages, chosenLanguageCode, fill, isLanguageCode, nativeLanguageName, ngettext, pluralIndexFor, setLanguage,
 } from '../src/lib/i18n.js';
 import {formattingLocale, Formatter} from '../src/lib/format.js';
 import {describeCode} from '../src/lib/weatherCodes.js';
@@ -62,4 +62,13 @@ test('a missing translation falls back to the desktop language', () => {
     setLanguage('xx', LOCALE_DIR ?? '/nonexistent');
     assert.equal(chosenLanguageCode(), null);
     assert.equal(_('Overcast'), 'Overcast');
+});
+
+test('only language codes choose a catalog, never a path', () => {
+    for (const code of ['sl', 'en', 'pt_BR', 'sr-Latn', 'fil'])
+        assert.ok(isLanguageCode(code), code);
+    for (const value of ['', '../sl', 'sl/../../tmp', '/tmp/x', 'sl\\x', 'toolong', null])
+        assert.ok(!isLanguageCode(value), String(value));
+    setLanguage('../../../locale/sl', LOCALE_DIR ?? '/nonexistent');
+    assert.equal(chosenLanguageCode(), null);
 });

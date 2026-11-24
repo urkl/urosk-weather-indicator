@@ -105,6 +105,17 @@ export function pluralIndexFor(language) {
 }
 
 /**
+ * Whether `language` looks like a language code (`sl`, `pt_BR`, `sr-Latn`), so a setting can
+ * never point the catalog path outside the locale directory.
+ *
+ * @param {string} language
+ * @returns {boolean}
+ */
+export function isLanguageCode(language) {
+    return typeof language === 'string' && /^[a-z]{2,3}([_-][A-Za-z0-9]{2,8})?$/.test(language);
+}
+
+/**
  * Chooses the language of the extension.
  *
  * @param {string|null} language e.g. `sl`; empty or `null` follows the desktop
@@ -117,6 +128,8 @@ export function setLanguage(language, localeDir) {
         return;
     }
     try {
+        if (!isLanguageCode(language))
+            throw new Error('not a language code');
         catalog = language === SOURCE_LANGUAGE
             ? new Map()
             : parseMo(GLib.file_get_contents(`${localeDir}/${language}/LC_MESSAGES/${DOMAIN}.mo`)[1]);

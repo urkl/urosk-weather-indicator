@@ -9,7 +9,7 @@
  */
 import GLib from 'gi://GLib';
 
-import {_} from './i18n.js';
+import {_, isLanguageCode} from './i18n.js';
 import {recordsToVariant} from './records.js';
 
 export const SETTINGS_FILE_FORMAT = 'urosk-weather-indicator-settings';
@@ -37,6 +37,11 @@ export function exportSettings(settings, {extensionVersion = null, now = new Dat
         settings: values,
     };
 }
+
+/** Checks beyond the schema type for keys whose strings have a fixed form. */
+const VALUE_CHECKS = {
+    language: value => value === '' || isLanguageCode(value),
+};
 
 const SIMPLE_TYPES = {
     b: value => typeof value === 'boolean',
@@ -92,6 +97,10 @@ export function importSettings(settings, data) {
             continue;
         }
         const schemaKey = schema.get_key(key);
+        if (VALUE_CHECKS[key] && !VALUE_CHECKS[key](value)) {
+            skipped.push(key);
+            continue;
+        }
         try {
             const variant = jsonToVariant(value, schemaKey.get_value_type().dup_string());
             if (schemaKey.range_check(variant))
