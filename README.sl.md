@@ -20,7 +20,8 @@ da bi verjela enemu modelu, od Open-Meteo hkrati vpraša šest modelov, pokaže 
 
 - **Šest vremenskih modelov v enem klicu** — ICON-D2, ICON-EU, ECMWF, GFS, Météo-France in UKMO prek
   [Open-Meteo](https://open-meteo.com). Brez ključa API, brez računa.  
-- **Mediana in razpon** za vsako vrednost; urni graf razpon modelov pokaže kot pas.  
+- **Mediana in razpon** za vsako vrednost; urni graf razpon modelov pokaže kot pas, rdeče nad 0 °C
+  in modro pod 0 °C, s črtkano črto pri 0 °C.  
 - **Opozorilo ob razhajanju**, ko se modeli razlikujejo za 4 °C ali več ali ko eni napovedujejo
   dež, drugi pa suho.  
 - **Zgornja vrstica** s trenutno temperaturo in do sedmimi dnevi (polno ali kratko).  

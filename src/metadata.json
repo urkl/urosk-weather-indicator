@@ -6,5 +6,5 @@
   "url": "https://github.com/urkl/urosk-weather-indicator",
   "settings-schema": "org.gnome.shell.extensions.urosk-weather-indicator",
   "gettext-domain": "urosk-weather-indicator",
-  "version-name": "1.1.0"
+  "version-name": "1.2.0"
 }

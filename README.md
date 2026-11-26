@@ -20,7 +20,8 @@ can see at a glance whether "rain on Thursday" is a safe bet or a coin toss.
 
 - **Six weather models in one request** — ICON-D2, ICON-EU, ECMWF, GFS, Météo-France and UKMO via
   [Open-Meteo](https://open-meteo.com). No API key, no account.  
-- **Median and range** for every value; the hourly chart shows the model spread as a band.  
+- **Median and range** for every value; the hourly chart shows the model spread as a band, red above
+  0 °C and blue below, with a dashed line at 0 °C.  
 - **Disagreement warnings** when the models differ by 4 °C or more, or when some say "rain" and
   others "dry".  
 - **Top bar** with the current temperature and up to seven days (full or compact).  

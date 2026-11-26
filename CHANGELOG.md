@@ -9,11 +9,22 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.2.0] — 2026-11-26
 
 ### Added
 
+- Hourly chart: the temperature and the band of model spread are red above 0 °C and blue below, changing colour exactly where they cross freezing, also between hours, with a dashed line at 0 °C (32 °F) when it is on the day's scale.  
 - GitHub releases are built and published automatically when a tag `vX.Y.Z` is pushed (`.github/workflows/release.yml`), with the CHANGELOG section as the release text; `make release-check` runs the same checks locally.
+
+### Fixed
+
+- Negative temperatures in the hourly chart were drawn with a box instead of the minus sign (`▯1°` instead of `-1°`).
+
+### Slovensko
+
+- Urni graf: temperatura in pas razpona modelov sta rdeča nad 0 °C in modra pod 0 °C; barva se zamenja točno na ničli, tudi med dvema urama, črtkana črta pa označuje 0 °C.  
+- Minus temperature so bile v urnem grafu izrisane s škatlico namesto minusa (`▯1°` namesto `-1°`).  
+- Izdaje na GitHubu nastanejo samodejno ob oznaki verzije.
 
 ## [1.1.0] — 2026-11-24
 
