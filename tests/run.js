@@ -19,6 +19,7 @@ import './arsoText.test.js';
 import './i18n.test.js';
 import './moon.test.js';
 import './settingsTransfer.test.js';
+import './charts.test.js';
 
 const failed = await run();
 imports.system.exit(failed ? 1 : 0);

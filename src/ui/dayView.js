@@ -55,7 +55,7 @@ export class DayView {
         this._summary.text = this._summaryText(day, fmt);
 
         this._chart.setData({hours: day.hours, now, fmt});
-        this._legend.text = fill(_('— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)'),
+        this._legend.text = fill(_('— temperature (median, red above freezing, blue below; band = model range)   ▮ precipitation %s/h (light = wettest model)'),
             fmt.precipitationSymbol);
 
         this._hours.destroy_all_children();

@@ -9,8 +9,11 @@
 import Cairo from 'cairo';
 
 export const COLORS = Object.freeze({
-    temperature: [1.0, 0.64, 0.28],
-    temperatureBand: [1.0, 0.64, 0.28, 0.22],
+    // The hourly temperature: red above 0 °C, blue below
+    warm: [0.95, 0.33, 0.29],
+    warmBand: [0.95, 0.33, 0.29, 0.20],
+    cold: [0.36, 0.66, 1.0],
+    coldBand: [0.36, 0.66, 1.0, 0.24],
     precipitation: [0.38, 0.63, 0.92, 0.85],
     precipitationRange: [0.38, 0.63, 0.92, 0.35],
     water: [0.36, 0.71, 0.96],
@@ -27,6 +30,9 @@ function setColor(cr, color) {
 }
 
 function text(cr, x, y, value, {size = 10, align = 'left', color, bold = false}) {
+    // Cairo's toy font API has no font fallback: the minus sign of Intl numbers (U+2212)
+    // would be a box with the usual Sans fonts, so it is drawn as a hyphen-minus
+    value = value.replaceAll('\u2212', '-');
     cr.selectFontFace('Sans', Cairo.FontSlant.NORMAL, bold ? Cairo.FontWeight.BOLD : Cairo.FontWeight.NORMAL);
     cr.setFontSize(size);
     const width = cr.textExtents(value).xAdvance;
@@ -48,6 +54,25 @@ function verticalLine(cr, x, top, bottom, color, dash = null) {
         cr.setDash([], 0);
 }
 
+/**
+ * Paints twice, clipped to the part above and the part below the height `yZero` of 0 °C
+ * (0 or `height` for a day that is all below or all above it), so a line or band changes
+ * colour exactly where it crosses freezing, also between hours.
+ *
+ * @param {(warm: boolean) => void} paint builds and strokes or fills the path
+ */
+function aboveAndBelowFreezing(cr, width, height, yZero, paint) {
+    for (const [y, h, warm] of [[0, yZero, true], [yZero, height - yZero, false]]) {
+        if (h <= 0)
+            continue;
+        cr.save();
+        cr.rectangle(0, y, width, h);
+        cr.clip();
+        paint(warm);
+        cr.restore();
+    }
+}
+
 function horizontalThresholds(cr, thresholds, {left, right, y, min, max, fg}) {
     cr.setDash([4, 3], 0);
     thresholds.forEach((value, i) => {
@@ -64,8 +89,9 @@ function horizontalThresholds(cr, thresholds, {left, right, y, min, max, fg}) {
 }
 
 /**
- * Hourly chart of one day: median temperature with the band of model spread, precipitation
- * bars (median, lighter up to the wettest model), hour labels, extremes and a "now" marker.
+ * Hourly chart of one day: median temperature with the band of model spread, red above and
+ * blue below 0 °C with a dashed line at 0 °C when it is on the scale, precipitation bars
+ * (median, lighter up to the wettest model), hour labels, extremes and a "now" marker.
  *
  * @param {Cairo.Context} cr
  * @param {number} width
@@ -96,6 +122,9 @@ export function drawHourlyChart(cr, width, height, {hours, now, fmt, fg}) {
         tMax = middle + 2;
     }
     const yT = t => top + h * 0.08 + h * 0.62 * (1 - (t - tMin) / (tMax - tMin));
+    // Height of 0 °C; above or below the whole chart when the day stays away from it
+    const freezing = fmt.temperatureValue(0);
+    const yZero = freezing < tMin ? height : freezing > tMax ? 0 : yT(freezing);
 
     // Precipitation uses the lower 40 %, scaled to at least 2 mm/h
     const pMax = Math.max(2, ...hours.map(hour => hour.precipitation.max ?? 0));
@@ -126,33 +155,47 @@ export function drawHourlyChart(cr, width, height, {hours, now, fmt, fg}) {
     const banded = hours.map((hour, i) => ({i, hour}))
         .filter(({hour}) => hour.temperature.min !== null && hour.temperature.max !== null);
     if (banded.length > 1) {
-        setColor(cr, COLORS.temperatureBand);
-        banded.forEach(({i, hour}, k) => {
-            const y = yT(temp(hour.temperature.max));
-            if (k === 0)
-                cr.moveTo(x(i), y);
-            else
-                cr.lineTo(x(i), y);
+        aboveAndBelowFreezing(cr, width, height, yZero, warm => {
+            setColor(cr, warm ? COLORS.warmBand : COLORS.coldBand);
+            banded.forEach(({i, hour}, k) => {
+                const y = yT(temp(hour.temperature.max));
+                if (k === 0)
+                    cr.moveTo(x(i), y);
+                else
+                    cr.lineTo(x(i), y);
+            });
+            [...banded].reverse().forEach(({i, hour}) => cr.lineTo(x(i), yT(temp(hour.temperature.min))));
+            cr.closePath();
+            cr.fill();
         });
-        [...banded].reverse().forEach(({i, hour}) => cr.lineTo(x(i), yT(temp(hour.temperature.min))));
-        cr.closePath();
-        cr.fill();
     }
 
-    setColor(cr, COLORS.temperature);
-    cr.setLineWidth(2);
-    let started = false;
-    hours.forEach((hour, i) => {
-        if (hour.temperature.median === null)
-            return;
-        const y = yT(temp(hour.temperature.median));
-        if (started)
-            cr.lineTo(x(i), y);
-        else
-            cr.moveTo(x(i), y);
-        started = true;
+    if (freezing >= tMin && freezing <= tMax) {
+        setColor(cr, withAlpha(fg, 0.45));
+        cr.setLineWidth(1);
+        cr.setDash([4, 3], 0);
+        cr.moveTo(left, Math.round(yZero) + 0.5);
+        cr.lineTo(left + w, Math.round(yZero) + 0.5);
+        cr.stroke();
+        cr.setDash([], 0);
+    }
+
+    aboveAndBelowFreezing(cr, width, height, yZero, warm => {
+        setColor(cr, warm ? COLORS.warm : COLORS.cold);
+        cr.setLineWidth(2);
+        let started = false;
+        hours.forEach((hour, i) => {
+            if (hour.temperature.median === null)
+                return;
+            const y = yT(temp(hour.temperature.median));
+            if (started)
+                cr.lineTo(x(i), y);
+            else
+                cr.moveTo(x(i), y);
+            started = true;
+        });
+        cr.stroke();
     });
-    cr.stroke();
 
     const medians = hours.map((hour, i) => ({i, t: hour.temperature.median})).filter(point => point.t !== null);
     if (medians.length) {

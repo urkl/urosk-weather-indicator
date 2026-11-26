@@ -175,11 +175,11 @@ msgstr "Oranžno opozorilo"
 msgid "Red alert"
 msgstr "Rdeče opozorilo"
 
-#: src/lib/settingsTransfer.js:82
+#: src/lib/settingsTransfer.js:87
 msgid "This is not a settings file of Urosk Weather Indicator."
 msgstr "To ni datoteka z nastavitvami razširitve Urosk Weather Indicator."
 
-#: src/lib/settingsTransfer.js:84
+#: src/lib/settingsTransfer.js:89
 msgid "The settings file is from a newer version; update the extension first."
 msgstr "Datoteka z nastavitvami je iz novejše različice; najprej posodobi razširitev."
 
@@ -756,8 +756,8 @@ msgid "Next full moon %s · new moon %s"
 msgstr "Naslednja polna luna %s · mlaj %s"
 
 #: src/ui/dayView.js:58
-msgid "— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)"
-msgstr "— temperatura (mediana, pas = razpon modelov)   ▮ padavine %s/h (svetlo = najbolj moker model)"
+msgid "— temperature (median, red above freezing, blue below; band = model range)   ▮ precipitation %s/h (light = wettest model)"
+msgstr "— temperatura (mediana, rdeča nad 0 °C, modra pod; pas = razpon modelov)   ▮ padavine %s/h (svetlo = najbolj moker model)"
 
 #: src/ui/dayView.js:78
 msgid "precipitation %s–%s"

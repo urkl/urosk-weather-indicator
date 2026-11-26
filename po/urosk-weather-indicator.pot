@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: urosk-weather-indicator\n"
-"POT-Creation-Date: 2026-11-24 07:21+0000\n"
+"POT-Creation-Date: 2026-11-26 09:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,11 +170,11 @@ msgstr ""
 msgid "Red alert"
 msgstr ""
 
-#: src/lib/settingsTransfer.js:82
+#: src/lib/settingsTransfer.js:87
 msgid "This is not a settings file of Urosk Weather Indicator."
 msgstr ""
 
-#: src/lib/settingsTransfer.js:84
+#: src/lib/settingsTransfer.js:89
 msgid "The settings file is from a newer version; update the extension first."
 msgstr ""
 
@@ -749,7 +749,7 @@ msgid "Next full moon %s · new moon %s"
 msgstr ""
 
 #: src/ui/dayView.js:58
-msgid "— temperature (median, band = model range)   ▮ precipitation %s/h (light = wettest model)"
+msgid "— temperature (median, red above freezing, blue below; band = model range)   ▮ precipitation %s/h (light = wettest model)"
 msgstr ""
 
 #: src/ui/dayView.js:78
